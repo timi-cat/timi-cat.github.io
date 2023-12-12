@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>为什么linux的安装包需要很多依赖 | Timi-cat</title><meta name="author" content="Timi-cat"><meta name="copyright" content="Timi-cat"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="依赖这东西，但凡是个软件都会存在的，因为所谓的“依赖”指的是对底层的依赖，一个软件要减少开发量，要通用，要跑起来，就必然是需要前人做好的其他底层结构来支持的 GNU&#x2F;Linux的依赖表示的那么明显，实际上是因为GNU&#x2F;Linux是开放且底层结构兼容性设计得非常好的，所以它每个软件的依赖关系在整个系统内都是公开的，所有软件需要用的依赖库是放在一起的，当安装一个软件的时候包管理器就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为什么linux的安装包需要很多依赖">
+<meta property="og:url" content="http://example.com/2023/12/12/%E4%B8%BA%E4%BB%80%E4%B9%88linux%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E9%9C%80%E8%A6%81%E5%BE%88%E5%A4%9A%E4%BE%9D%E8%B5%96/index.html">
+<meta property="og:site_name" content="Timi-cat">
+<meta property="og:description" content="依赖这东西，但凡是个软件都会存在的，因为所谓的“依赖”指的是对底层的依赖，一个软件要减少开发量，要通用，要跑起来，就必然是需要前人做好的其他底层结构来支持的 GNU&#x2F;Linux的依赖表示的那么明显，实际上是因为GNU&#x2F;Linux是开放且底层结构兼容性设计得非常好的，所以它每个软件的依赖关系在整个系统内都是公开的，所有软件需要用的依赖库是放在一起的，当安装一个软件的时候包管理器就">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/wz.jpg">
+<meta property="article:published_time" content="2023-12-12T15:37:03.000Z">
+<meta property="article:modified_time" content="2023-12-12T15:52:22.089Z">
+<meta property="article:author" content="Timi-cat">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="依赖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/wz.jpg"><link rel="shortcut icon" href="/img/touxiang.jpg"><link rel="canonical" href="http://example.com/2023/12/12/%E4%B8%BA%E4%BB%80%E4%B9%88linux%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E9%9C%80%E8%A6%81%E5%BE%88%E5%A4%9A%E4%BE%9D%E8%B5%96/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '为什么linux的安装包需要很多依赖',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-12-12 23:52:22'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-sitemap"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/wz.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Timi-cat"><span class="site-name">Timi-cat</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-sitemap"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">为什么linux的安装包需要很多依赖</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-12T15:37:03.000Z" title="发表于 2023-12-12 23:37:03">2023-12-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-12T15:52:22.089Z" title="更新于 2023-12-12 23:52:22">2023-12-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/linux/">linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="为什么linux的安装包需要很多依赖"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>依赖这东西，但凡是个软件都会存在的，因为所谓的“依赖”指的是对底层的依赖，一个软件要减少开发量，要通用，要跑起来，就必然是需要前人做好的其他底层结构来支持的</p>
+<p>GNU&#x2F;Linux的依赖表示的那么明显，实际上是因为GNU&#x2F;Linux是开放且底层结构兼容性设计得非常好的，所以它每个软件的依赖关系在整个系统内都是公开的，所有软件需要用的依赖库是放在一起的，当安装一个软件的时候包管理器就很明确地知道需要解决哪些依赖问题，当需要调用依赖的时候进程就去约定好的系统里放依赖库的地方找，这样每次安装一个新程序，可能仅仅只需要几MiB大小的空间，举例来说，比如因为X11环境基本是公用的，所以换一套桌面环境甚至也仅仅只需要下载几百MiB的文件，安装完毕的占用也基本能控制在一个GiB以内（假如按照完整打包的方式换桌面环境，估计下载内容就得几个GiB起步，安装完就更不知道了）。</p>
+<p>其他的，Windows也罢Android也罢，则是各个程序把自己的东西放在自己的文件夹里面，因此不会明显地提到自己的依赖，好处是我厂商提供的这一坨东西只要解开放在这里那就基本不需要别的程序自己就能运行起来，而且我厂的程序和别人厂的软件之间也基本不会互相干扰，但坏处就是及其浪费空间；那些不兼容的依赖各软件自己存储一份还好说，兼容的依赖也要各自存储一份简直就像有那个大病，但是开发者也不能不这么干，因为兼容性本来就差，别的软件的情况也不对你的软件公开，如果自己的软件依赖别人，但别人提供的有问题导致跑步起来怎么办，难道指望用户怪到自己头上吗，不可能，所以售后电话会被打爆的</p>
+<p>Windows的情况自己打开Program Files看一下就很明显了，基本只有微软自己家的.NET，Visual C++能做到公用依赖，再有就是Python啦，JRE&#x2F;JDK啦之类的各软件肯定能做到兼容公用的东西了，其他的基本都是自己带自己的依赖</p>
+<p>至于Android的情况，我只能说国内一万个程序能内置一万个Embedded Chromium，连他自己选择要用的最主要的框架都是这个样子，那其他部分能好到哪去呢，导致的结果举例来讲，比如某不存在的软件商店，里面二十来MiB的软件就能随便提供国内上百甚至几百MiB的软件提供的功能</p>
+<p>转载链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/535653512/answer/2534865016">https://www.zhihu.com/question/535653512/answer/2534865016</a></p>
+<p>因为那些依赖是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/GNU%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E8%AE%B8%E5%8F%AF%E8%AF%81/393832?fr=ge_ala">GPL</a>的库。这类GPL库的特点是：如果你发布时直接包含它们的二进制包，就必须同步提供他们的源代码。换句话说，如果你直接将依赖库包含到你的发行，那么你依赖的库的源代码，必须在你的软件官网提供下载，首先，这占了你网站的流量以及空间。假如你依赖了一个开源库，又不想动态依赖，你使用「静态链接」的方式把它链接到你的应用。此时，你发布的应用中有这份开源代码的二进制包，所以你就必须在你自己软件的软件仓库中，同步维护一份这个开源库的源代码，并且将来还得自己维护更新。相当于额外的增加了自己的维护量。你依赖的开源库还可能依赖其它库，你必须顺着依赖解决他们的所有问题，最终，你可能得依赖十几个包，几十个包，如果你想要去掉所有依赖。那么你就需要把这些包的源代码全都整合到自己的项目，解决所有这些包的编译，并且「你显然不可能负责解决他们所有的bug」，所以后续这些软件的更新又是一堆麻烦事。本来维护一个简单的开源软件，结果变成了维护几十个软件的编译环境以及后续更新，谁愿意给自己找麻烦呢？但如果做成外部依赖，你就不用考虑这些问题，只要声明你依赖他们，后续的维护你就不用管了！举个例子，如果你依赖了 ffmpeg 库，并且发布的应用直接包含这个库（而非做成外部依赖），那么就必须在自己软件的网站上提供一份 ffmpeg 的源代码，并且你包含的库必须是这份源代码能编译出来的。同样，如果你编译的这份 ffmpeg 是直接提供它依赖的库而不做成外部依赖，那么 ffmpeg 依赖的所有库你也得提供源代码，并且负责维护它。因此，在Linux生态中，直接包含一个依赖库是非常不划算的，这样会极大的增加自己的维护量。使用外部依赖则可以避免很多自己的麻烦。安卓app为什么不需要依赖呢？因为他们将依赖直接打包到自己应用内部。那么，为什么他们可以将依赖直接打包到自己应用内部呢？一方面，可能是因为这些依赖并不是 GPL 协议的库，本身协议就允许直接放进你的应用。二方面，就是这些app确实依赖了GPL库，但并没有依照GPL协议随着自己的应用发布这些库的源代码。他们本来就是违法依赖。三方面嘛，其实如果是Java库，Java本身就相当于是开源的，毕竟Java可以完全反编译，所以或许，直接包含依赖跟提供源代码一定程度上会等价？对于商用软件来说，第一个原因可能会更多一些，换句话说这些依赖本来就不是 GPL 协议的，所以可以允许直接打包进你的应用。当然，第二个原因也是有的。至于第三个原因，有待验证。</p>
+<p>转载链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/535653512/answer/2511579971">https://www.zhihu.com/question/535653512/answer/2511579971</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Timi-cat</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/12/12/%E4%B8%BA%E4%BB%80%E4%B9%88linux%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E9%9C%80%E8%A6%81%E5%BE%88%E5%A4%9A%E4%BE%9D%E8%B5%96/">http://example.com/2023/12/12/%E4%B8%BA%E4%BB%80%E4%B9%88linux%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E9%9C%80%E8%A6%81%E5%BE%88%E5%A4%9A%E4%BE%9D%E8%B5%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Timi-cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a><a class="post-meta__tags" href="/tags/%E4%BE%9D%E8%B5%96/">依赖</a></div><div class="post_share"><div class="social-share" data-image="/img/wz.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/12/12/shell%E2%80%94%E2%80%94%E2%80%94%E6%8F%90%E4%BE%9B%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E7%9A%84%E7%A8%8B%E5%BA%8F/" title="shell———提供用户界面的程序"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">shell———提供用户界面的程序</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/12/shell%E2%80%94%E2%80%94%E2%80%94%E6%8F%90%E4%BE%9B%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E7%9A%84%E7%A8%8B%E5%BA%8F/" title="shell———提供用户界面的程序"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-12</div><div class="title">shell———提供用户界面的程序</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Timi-cat</div><div class="author-info__description">Timi-cat的个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/12/12/%E4%B8%BA%E4%BB%80%E4%B9%88linux%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E9%9C%80%E8%A6%81%E5%BE%88%E5%A4%9A%E4%BE%9D%E8%B5%96/" title="为什么linux的安装包需要很多依赖"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为什么linux的安装包需要很多依赖"/></a><div class="content"><a class="title" href="/2023/12/12/%E4%B8%BA%E4%BB%80%E4%B9%88linux%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E9%9C%80%E8%A6%81%E5%BE%88%E5%A4%9A%E4%BE%9D%E8%B5%96/" title="为什么linux的安装包需要很多依赖">为什么linux的安装包需要很多依赖</a><time datetime="2023-12-12T15:37:03.000Z" title="发表于 2023-12-12 23:37:03">2023-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/12/shell%E2%80%94%E2%80%94%E2%80%94%E6%8F%90%E4%BE%9B%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E7%9A%84%E7%A8%8B%E5%BA%8F/" title="shell———提供用户界面的程序"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="shell———提供用户界面的程序"/></a><div class="content"><a class="title" href="/2023/12/12/shell%E2%80%94%E2%80%94%E2%80%94%E6%8F%90%E4%BE%9B%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E7%9A%84%E7%A8%8B%E5%BA%8F/" title="shell———提供用户界面的程序">shell———提供用户界面的程序</a><time datetime="2023-12-11T18:28:10.000Z" title="发表于 2023-12-12 02:28:10">2023-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/05/%E9%83%A8%E7%BD%B2hexo%E4%BB%A5%E5%8F%8A%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" title="部署hexo以及主题美化遇到的问题"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="部署hexo以及主题美化遇到的问题"/></a><div class="content"><a class="title" href="/2023/12/05/%E9%83%A8%E7%BD%B2hexo%E4%BB%A5%E5%8F%8A%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" title="部署hexo以及主题美化遇到的问题">部署hexo以及主题美化遇到的问题</a><time datetime="2023-12-05T10:43:58.000Z" title="发表于 2023-12-05 18:43:58">2023-12-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Timi-cat</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer" data-id="8900865262" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="/true"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
