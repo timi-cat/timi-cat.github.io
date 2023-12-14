@@ -1,0 +1,339 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络第一天 | Timi-cat</title><meta name="author" content="Timi-cat"><meta name="copyright" content="Timi-cat"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="交换机就在几年前，网络仍是相当小型的。这就意味着你只需简单地将所有设备查到一台或几台集线器上就够了。集线器的作用是在需要对信号放大时对其放大，然后传至所有其它插上集线器的设备。问题在于，一条只希望传给某台特定主机的消息，被传给了成百上千台网络上的主机。 网络交换机是更为智能版的集线器。交换机使用内容可寻址存储器(Content Addressable Memory, CAM), 因此可以记住设备所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络第一天">
+<meta property="og:url" content="http://example.com/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/index.html">
+<meta property="og:site_name" content="Timi-cat">
+<meta property="og:description" content="交换机就在几年前，网络仍是相当小型的。这就意味着你只需简单地将所有设备查到一台或几台集线器上就够了。集线器的作用是在需要对信号放大时对其放大，然后传至所有其它插上集线器的设备。问题在于，一条只希望传给某台特定主机的消息，被传给了成百上千台网络上的主机。 网络交换机是更为智能版的集线器。交换机使用内容可寻址存储器(Content Addressable Memory, CAM), 因此可以记住设备所">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/wz.jpg">
+<meta property="article:published_time" content="2023-12-14T14:12:07.000Z">
+<meta property="article:modified_time" content="2023-12-14T21:11:55.228Z">
+<meta property="article:author" content="Timi-cat">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/wz.jpg"><link rel="shortcut icon" href="/img/touxiang.jpg"><link rel="canonical" href="http://example.com/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机网络第一天',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-15 05:11:55'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-sitemap"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/wz.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Timi-cat"><span class="site-name">Timi-cat</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-sitemap"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络第一天</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-14T14:12:07.000Z" title="发表于 2023-12-14 22:12:07">2023-12-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-14T21:11:55.228Z" title="更新于 2023-12-15 05:11:55">2023-12-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络第一天"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h1><p>就在几年前，网络仍是相当小型的。这就意味着你只需简单地将所有设备查到一台或几台集线器上就够了。集线器的作用是在需要对信号放大时对其放大，然后传至所有其它插上集线器的设备。问题在于，一条只希望传给某台特定主机的消息，被传给了成百上千台网络上的主机。</p>
+<p>网络交换机是更为智能版的集线器。交换机使用内容可寻址存储器(Content Addressable Memory, CAM), 因此可以记住设备所插入的端口。思科公司生产的交换机被设计可用于从小型机构到有数千台设备的大型企业网络。</p>
+<p>交换机的基本功能是利用设备的 MAC 地址（第二层）和 IP 地址（第三层）来运行，它们也能完成更为复杂的一些工作，比如包括基于 permit&#x2F;deny、协议及端口号（第四层），还有综合各层及其它方面的策略和规则的处理列表（porcessing lists）。</p>
+<p>早期版本的交换机又被叫做网桥。网桥查看数据帧的源端口和 MAC 地址，以建立一个表并做出转发决定。在网桥上，有相应软件来访问这个表，在交换机上，则是由硬件（专用集成电路， Application Specific Integreated Chips, ASIC）去访问 CAM 表。因此交换机可以看成是一台多端口网桥。</p>
+<p>采行交换机可以将你的网络划分成更小的、更可管理的部分（就是网段，segments）。进而允许单位内部的不同部门，比如人力资源、财务、法务等等，得以同时在各自的网段上工作，这是十分有用的，因为同一部门的设备大部分时间都是用于各自之间的通信。</p>
+<p>每台设备都连接到交换机的一个接口上，这样的接口被称为“端口(port)”。常见的接口速度为 100Mbps 或 1000Mbps(又叫做 1Gbps)。通常有用于连接到另一交换机的光纤端口。每台交换机又有各自的管理端口，用于连接计算机，完成初始配置并获得通过网络进行维护的访问能力。</p>
+<p>基本的网络交换机用于：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">连接pc,打印机等设备</span><br><span class="line">赋予网络服务器和路由器网络访问</span><br><span class="line">使用VLAN对网络划分</span><br></pre></td></tr></table></figure>
+
+<h1 id="OSI和TCP模型"><a href="#OSI和TCP模型" class="headerlink" title="OSI和TCP模型"></a>OSI和TCP模型</h1><p>开放标准互连（Open Standards Interconnection, OSI）是有国际标准化组织创建的。伴随技术喷发，网络设备和网络软件行业兴起了几家巨头，包括思科、微软、Novell、IBM、惠普、苹果以及其它几家公司。每家都有自己的线缆和端口类型，允许各自的商业性协议。此时，如你从一家买路由器、另一家买交换机，又从别家买服务器，就会出现兼容性问题。</p>
+<p>有一些处理这些问题的通容办法，比如在网络上部署网关来转换不同的协议，这会导致性能上的瓶颈（比如网络慢速部分）并会令到故障排除十分困难和费时。最终，厂商们不得不达成一个在各自产品上都能工作的通用标准，一套叫做 TCP&#x2F;IP 的免费协议包。最后，那些未能采行 TCP&#x2F;IP 的厂商失去市场份额，走向破产。</p>
+<p>ISO 创建出 OSI 模型，以助力于各厂商就通用标准达成一致，实现厂商之间的兼容。此模型包括了将总多网络功能分解为一套逻辑分层，或通俗地称为层的东西。各层只需完成其特定的一些功能，比如说你的公司专注于防火墙，那么这些防火墙将自然地与其它厂商的设备一起工作。</p>
+<p>此模型的优势在于每件设备设计用来出色完成一个角色，而非不充分地完成多个角色。客户可以根据其解决方案选出最好的设备，而不用死栓在一家厂商那里。同时故障排除也变得更为容易，因为确定的出错可被追踪到具体的某层。</p>
+<p>OSI 模型将所有网络功能划分为七个不同的层。该层次化模型从第七层一路去往第一层。那些离用户更近、更为复杂的功能，在顶部，一直到处于底层的网络线缆规格，如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>层名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7</td>
+<td>应用层，Application</td>
+</tr>
+<tr>
+<td>6</td>
+<td>表示层, Presentation</td>
+</tr>
+<tr>
+<td>5</td>
+<td>会话层, Session</td>
+</tr>
+<tr>
+<td>4</td>
+<td>传输层, Transport</td>
+</tr>
+<tr>
+<td>3</td>
+<td>网络层, Network</td>
+</tr>
+<tr>
+<td>2</td>
+<td>数据链路层, Data Link</td>
+</tr>
+<tr>
+<td>1</td>
+<td>物理层, Physical</td>
+</tr>
+</tbody></table>
+<h2 id="第七层-–-应用层"><a href="#第七层-–-应用层" class="headerlink" title="第七层 – 应用层"></a>第七层 – 应用层</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是到你我这些终端用户最近的层。应用层并非操作系统，但它通常提供了诸如 e-mail(SMTP 以及 POP3)、web 浏览（使用 HTTP）、以及文件传输服务（使用 FTP）。应用层决定了资源的可用性。</span><br></pre></td></tr></table></figure>
+
+<h2 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">表示层将数据提供给应用层。多媒体技术工作在这一层，你可以想到 MP4、JPEG、GIF 等等。而加密、解密以及数据压缩都发生在这一层。</span><br></pre></td></tr></table></figure>
+
+<h2 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">会话层的角色是建立、管理及中断设备之间的会话。这些动作发生在逻辑链路上，而真正干的事情是将两个软件应用程序连接起来。SQL、RPC 以及 NFS 都工作于会话层。</span><br></pre></td></tr></table></figure>
+
+<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">传输层的角色是将来自更高层的数据分拆成被称为数据段（segments）的更小片</span><br><span class="line">在数据得以跨网络传输前，传输层需要确认多少数据能发往远端设备。这取决于端到端链路的速率和可靠性。如你有一条高速链路，而终端用户只有一条低速链路，数据仍然需要以较小数据块进行发送。</span><br><span class="line"></span><br><span class="line">传输层包含了好几个协议，其中最熟知的是传输控制协议（Tranmission Control Protocol, TCP）和用户数据报协议（User Datagram Protocol, UDP）, 它们都是 TCP/IP 协议包的组成部分。这个协议包因为是互联网所使用的标准而相当出名。TCP 是面向连接的协议。它使用了三次握手、窗口机制以及其它技巧来保证数据安全地到达其目的地。有许多协议都使用了 TCP， 比如 Telnet、HTTPS 以及 FTP（尽管 FTP 位于应用层，它确实使用了 TCP）。</span><br><span class="line"></span><br><span class="line">UDP 是一个无连接协议（a connectionless protocol）。它在对数据包进行编号后就发往目的地了。它绝不会管这些数据包是否安全抵达，也绝不会在发送数据包前建立一条连接。在数据不是那么重要，应用开发者觉得信息总是可以在未能到达目的地时重新发送时，往往采用 UDP。</span><br><span class="line"></span><br><span class="line">那么为什么要用到 UDP 呢？ TCP 协议本身会消耗许多网络的带宽，甚至在数据还没发送时，为建立其连接，也要往复发送很多流量。这都会耗去一些宝贵的时间和网络资源。UDP 数据包比起 TCP 包要小很多，在无需真正可靠连接时，它是是否有用的。使用到 UDP 的协议有 TFTP 等。</span><br></pre></td></tr></table></figure>
+
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">网络层接手来自传输层的数据段，将其拆分为叫做数据包的更小单位。</span><br><span class="line">网络层必须确定从一个网络到另一网络的最优路径，路由器工作在该层。路由器在此采用逻辑寻址，而 TCP/IP 的寻址方式是 IP 寻址</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">数据链路层将数据包拆分成帧这种更小的单位。二层交换机工作在这层，使用硬件地址，或是 MAC 地址，它们之所以能够更快地交换流量，是因为无需查看 IP 地址和路由表。广域网协议工作在第二层，包括 HDLC、ISDN 以及 PPP。以太网也是第二层的。</span><br><span class="line"></span><br><span class="line">为了向其上下两层提供接口，数据链路层又分了两个子层，分别是逻辑链路控制子层（the Logical Link Control, LLC）, 以及介质访问控制子层（ the Media Access Control, MAC）。逻辑链路控制子层与网络层交互，介质访问控制子层与物理层交互。</span><br></pre></td></tr></table></figure>
+
+<h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在这层上，帧被转换为位，以将其放到线路上。这些位是由电脉冲构成，读作“开”“关”位，或是二进制的 1 和 0。集线器工作于此层，在这里你会找到线缆规格，比如 RJ45。</span><br></pre></td></tr></table></figure>
+
+<h1 id="地址解析协议，Address-Resolution-Protocol-ARP"><a href="#地址解析协议，Address-Resolution-Protocol-ARP" class="headerlink" title="地址解析协议，Address Resolution Protocol, ARP"></a>地址解析协议，Address Resolution Protocol, ARP</h1><p>在局域网中，网络中实际传输的是“帧”，帧里面是有目标主机的MAC地址的。在以太网中，一个主机和另一个主机进行直接通信，必须要知道目标主机的MAC地址。<br>所谓“地址解析”就是主机在发送帧前将目标IP地址转换成目标MAC地址的过程。ARP协议的基本功能就是通过目标设备的IP地址，查询目标设备的MAC地址，以保证通信的顺利进行。</p>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><p>在网络设备中会存在一个ARP缓存表，这个缓存表记录着这个IP 地址和MAC地址的映射关系，可以在设备终端使用arp -a 来查看本地的arp 缓存表的缓存信息。<br>设备需要解析一个IP地址时， 会发出一个arp 请求报文的广播帧，2层报文中目的MAC地址为全F ，目的设备在收到ARP请求报文之后，会向源设备发送一个单播帧，该单播帧是一个ARP的应答报文，该应答报文中包含了目的设备的MAC地址。<br>假设PC 1 只知道PC3 的IP地址是10.1.1.3， 但是不知道PC3的MAC， 现在想获取PC3 的MAC地址<br>1、发送者PC1：PC 1 会发送一个广播帧， 源IP和源MAC是PC1， 目的IP是PC3，目的MAC为FF-FF-FF-FF-FF-FF， 这个帧是广播发送的， 该网络内所有主机都会接收到，这个报文的载荷内容是一个ARP请求报文，意思是我的MAC地址是MAC1，我想给10.1.1.3发送数据，谁是10.1.1.3，请回复一下我。</p>
+<p>2、非目的主机PC2：由于这个广播帧网络内主机都可以收到，PC2 收到这个帧，提取IP地址，发现，它要找的IP地址是10.1.1.3，我的IP地址是10.1.1.2，这个数据包不是发给我的，丢弃，不回复。</p>
+<p>3、 目的主机PC3：PC 3 收到这个广播数据帧后，拆开数据帧，提取IP地址，发现和我本地IP地址是一样的，这个数据包就是发给我的，然后再拆，提取报文后， 了解到对方要请求我自己的MAC地址，然后就打包一个ARP的应答报文，源IP和源MAC都是自己的，目的IP和目的MAC是对方的，单播的发送给接收者，这样PC1 就有了PC3的MAC地址。</p>
+<h2 id="代理ARP"><a href="#代理ARP" class="headerlink" title="代理ARP"></a>代理ARP</h2><p>如果这两个主机不在同一个网络内， 被3层设备隔离了， 怎么通信呢？<br><img src="/img/loading.gif" data-original="https://pic2.zhimg.com/v2-e513ad067dc1bf06378e487bc775a6bd_r.jpg" alt="图片"><br>目的IP地址与本机的IP地址位于不同网络， 由于主机A没有配置网关，所以它将会以广播形式发送ARP Request报文，请求主机B的MAC地址。但是，广播报文无法被路由器转发，所以主机B无法收到主机A的ARP请求报文，当然也就无法应答。</p>
+<p>在路由器上启用代理ARP功能，就可以解决这个问题。</p>
+<p>启用代理ARP后， 主机A解析网关MAC 地址过程：</p>
+<p>1、主机A发送arp 请求网关MAC： 在电脑主机要先配置网关地址，主机A给主机B发送数据，发现是不同网段的数据通信，而我本地是没有这个关于B的ARP映射关系的，就会发送一个arp请求报文，解析网关MAC地址，源IP和源MAC地址都是主机A，目的IP是网关IP地址，目的MAC地址是全0。</p>
+<p>2、网关回复自己的MAC 地址：网关收到这个arp请求报文后， 检查目的主机是否可达，可达，就会把自己的MAC地址以arp reply报文回复给主机A，目的主机不可达就不回复。</p>
+<p>3：主机A 给主机B 发送数据：主机A收到这个arp应答报文就会把网关MAC和网关的IP地址添加进arp表，A要给主机B发送数据，需要先解析B的MAC地址，发送一个arp请求报文，源IP 和源MAC是A的信息，目的IP地址是B的IP地址，目的MAC是网关MAC。</p>
+<p>4： 网关收到数据包后的处理：网关收到这样的请求，会查找路由表，如果存在主机B的路由表项，路由器将会使用自己的G0&#x2F;0&#x2F;0接口的MAC地址来回应该ARP request。主机A收到ARP reply后，将以路由器的G0&#x2F;0&#x2F;0接口MAC地址作为目的MAC地址进行数据转发。</p>
+<h1 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h1><p>就如同你已经看到的那样，交换机打破冲突域。更进一步，路由器打破广播域，这就是说现在的网络看起来像下面这样。<br><img src="/img/loading.gif" data-original="https://github.com/gnu4cn/ccna60d/blob/main/src/images/0213.png" alt="图片">图2.13–路由器隔离广播域</p>
+<p>在继续之前，让我们讨论一下局域网到底是什么。一个局域网本质上是一个广播域。图 2.13 中的网络上，如果 PC-A 发出一个广播包，PC-B 会接收到这个包，PC-C 和 PC-D 却不能。这是因为那台路由器打破了该广播域。现在你可以使用虚拟局域网将交换机的那些端口放入不的广播域，如下图所示。<br><img src="/img/loading.gif" data-original="https://github.com/gnu4cn/ccna60d/blob/main/src/images/0214.png" alt="图片">图 2.14 – VLAN 下的广播域<br>图 2.14 中，该 2 层网络经由 VLANs 被划分为两个广播域。PC-A 发出的广播包为 PC-B 接收到，PC-C 和 PC-D 接收不到。如没有 VLANs，PC-C 和 PC-D 仍会收到 PC-A 发出的广播包。VLANs 的一些优点如下。</p>
+<p>更小规模的设备组中的较少广播包令到网络更快</p>
+<p>设备资源得以节省，因为它们只需处理少量的广播包</p>
+<p>通过将设备保留在特定组别（或按特定功能分组）的一个广播域中，而提升安全性。这里的组别，可以是公司&#x2F;机构的部门，或是某个安全级别等。比如开发部门或者测试室就应该与生产部门的设备分开。</p>
+<p>带来在跨越任何尺度的地理位置上网络扩展的灵活性。比如，同一 VLAN 中某台 PC 在楼宇中的什么位置并不重要。它会以为自己与其它配置在同一 VLAN 中的机器在同样的网段上。图 2.15 中，VLAN 1 中的所有主机都能与其它主机通信，尽管它们不在同一楼层。对它们来说，VLAN 是透明的或不可见的。</p>
+<h1 id="接入链路-Access-links"><a href="#接入链路-Access-links" class="headerlink" title="接入链路 Access links"></a>接入链路 Access links</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">被定义了作为接入链路的交换机端口，只能是唯一 VLAN 的一个成员。连接该接入链路的设备并不知晓任何其它 VLANs 的存在。在来自主机的帧进入到一个接入链路时，交换机就将一个标签加入到该帧中，在前往主机的帧从交换机接入链路出去时，交换将该标记从帧中移除。接入链路用于连接主机，也可以用于连接路由器。</span><br></pre></td></tr></table></figure>
+
+<h1 id="中继-Trunk"><a href="#中继-Trunk" class="headerlink" title="中继 Trunk"></a>中继 Trunk</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">某个交换机端口通常既会连接网络上的某台主机，也会连接其它网络交换机、路由器或服务器。那么该链路就有可能需要传输多个 VLANs 上的流量。为实现这个目的，就需要区分每个帧都是来自于哪个 VLAN。这种区分方式就叫做 “帧标记（frame tagging）”, 在经中继链路传输前，出原生 VLAN 的帧外，所有帧都已打过标签。帧中的标记包含了 VLAN ID 信息。在帧到达目的主机所在的那台交换机后，该标记被移除。</span><br></pre></td></tr></table></figure>
+<p>VLAN 中继用于传输多个 VLAN 的数据。为将属于某个 VLAN 的帧与其它 VLANs 的帧有所区别，在中继链路上传输的所有帧都经特别标记过，这样目的交换机就知道该帧属于那个 VLAN。ISL 和 802.1Q 是用于确保这些 VLANs 在穿过交换机中继链路后，仍能完全分辨出来的两种主要方式。</p>
+<h1 id="VLAN间路由"><a href="#VLAN间路由" class="headerlink" title="VLAN间路由"></a>VLAN间路由</h1><p>默认情况下，尽管 VLANs 能够跨越整个的二层交换网络，一个 VLAN 中的主机却是不能直接和其它 VLAN 中的主机直接通信的。为实现这个目的，必须对不同 VLANs 间的流量进行路由。这就叫做 VLAN 间路由。交换局域网（switched LANs） 中的 VLAN 间路由有三种实现方式，下面有分别列出，这三种方式及其各自的优势和劣势，接下来的部分会详细介绍。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">采用物理的路由器接口的 VLAN 间路由, Inter-VLAN routing using physical router interfaces</span><br><span class="line">采用路由器子接口的 VLAN 间路由, Inter-VLAN routing using router subinterfaces</span><br><span class="line">采用交换机虚拟接口的 VLAN 间路由, Inter-VLAN routing using switched virtual interfaces</span><br></pre></td></tr></table></figure>
+<h2 id="采用物理的路由器接口的-VLAN-间路由"><a href="#采用物理的路由器接口的-VLAN-间路由" class="headerlink" title="采用物理的路由器接口的 VLAN 间路由"></a>采用物理的路由器接口的 VLAN 间路由</h2><p>图 3.3 演示了用到两个不同 VLANs 的单一 LAN，这两个 VLANs 都有分配给各自的 IP 子网。尽管图中画出的网络主机都是连接在同一物理交换机上，但因为它们处于不同的 VLANs 中， VLAN 10 中的主机与 VLAN 20 中的主机之间的数据包必须要经过路由才行，而在同样 VLAN 中的数据包只需要简单的交换即可。</p>
+<p>这种方案的最主要优势在于，它是简单的，且易于部署。而最主要的劣势在于，它不具有可扩展性。比如说，，当交换机上配置了有 5 个、10 个，甚至 20 个额外的 VLANs 时，路由器上就要有相应数量的物理接口才行。在大多数情况下，这在技术上是不可行的。</p>
+<p>在采用多物理路由器接口时，各需要的 VLAN 中到路由器的交换机链路，被配置为接入链路。然后路由器上的物理接口都配置上相应的 IP 地址，而 VLAN 上的网络主机，要么以静态方式配置上相应 VLAN 的 IP 地址，将该路由器物理接口作为默认网关，要么通过 DHCP 完成配置。图 3.3 中交换机的配置，在下面的输出中有演示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">VTP-Server-1(config)#vlan 10</span><br><span class="line">VTP-Server-1(config-vlan)#name Example-VLAN-10</span><br><span class="line">VTP-Server-1(config-vlan)#exit</span><br><span class="line">VTP-Server-1(config)#vlan 20</span><br><span class="line">VTP-Server-1(config-vlan)#name Example-VLAN-20</span><br><span class="line">VTP-Server-1(config-vlan)#exit</span><br><span class="line">VTP-Server-1(config)#interface range FastEthernet0/1 – 2, 23</span><br><span class="line">VTP-Server-1(config-if-range)#switchport</span><br><span class="line">VTP-Server-1(config-if-range)#switchport access vlan 10</span><br><span class="line">VTP-Server-1(config-if-range)#switchport mode access</span><br><span class="line">VTP-Server-1(config-if-range)#exit</span><br><span class="line">VTP-Server-1(config)#interface range FastEthernet0/3 – 4, 24</span><br><span class="line">VTP-Server-1(config-if-range)#switchport</span><br><span class="line">VTP-Server-1(config-if-range)#switchport access vlan 20</span><br><span class="line">VTP-Server-1(config-if-range)#switchport mode access</span><br><span class="line">VTP-Server-1(config-if-range)#exit</span><br></pre></td></tr></table></figure>
+<p><strong>路由器配置：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#interface FastEthernet0/0</span><br><span class="line">R1(config-if)#ip add 10.10.10.1 255.255.255.0</span><br><span class="line">R1(config-if)#exit</span><br><span class="line">R1(config)#interface FastEthernet0/1</span><br><span class="line">R1(config-if)#ip add 10.20.20.1 255.255.255.0</span><br><span class="line">R1(config-if)#exit</span><br></pre></td></tr></table></figure>
+<p><img src="/img/loading.gif" data-original="https://github.com/gnu4cn/ccna60d/blob/main/src/images/0303.png" alt="图片"></p>
+<h1 id="使用路由器子接口的-VLAN-间路由"><a href="#使用路由器子接口的-VLAN-间路由" class="headerlink" title="使用路由器子接口的 VLAN 间路由"></a>使用路由器子接口的 VLAN 间路由</h1><p>采用路由器子接口实现 VLAN 间路由的方法，解决了使用多路由器物理接口方法所可能存在的伸缩性问题。有了路由器子接口，就只需要路由器有一个物理接口就行，接下来的子接口是经由在那个物理接口上的配置获得。图 3.4 演示了这种方法。<br><img src="/img/loading.gif" data-original="https://github.com/gnu4cn/ccna60d/blob/main/src/images/0304.png" alt="图片"><br>图 3.4 描绘了图 3.3 中同样的 LAN。但在图 3.4 中，仅使用了一个物理路由器接口。而为了实现一种 VLAN 间路由解决方案，使用 interface [name].[subinterface number] 全局配置命令，在该主要路由器接口上配置出了子接口。而通过命令 encapsulation [isl|dot1q] [vlan] 子接口配置命令，又将各子接口与某个特定 VLAN 关联了起来。最后一步就是给子接口配置上需要的 IP 地址。</p>
+<p>在交换机上，那条连接路由器的单一链路，必须要配置为中继链路，这是因为路由器不支持 DTP。假如中继配置成 802.1Q 中继，那么在原生 VLAN 不是默认原生 VLAN 时，此中继的原生 VLAN 一定要定义。而该原生 VLAN 也要在相应的路由器子接口上予以配置，配置命令为 encapsulation dot1q [vlan] native 子接口配置命令。下面的输出演示了使用单一物理接口的 VLAN 间路由配置（又称作 “单臂路由，router-on-a-stick”）。图 3.4 中绘出的两个 VLANs 在下面的输出中也有显示，同时还有一个额外的 VLAN 用于管理用；该管理 VLAN 将被配置为原生 VLAN。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">VTP-Server-1(config)#vlan 10</span><br><span class="line">VTP-Server-1(config-vlan)#name Example-VLAN-10</span><br><span class="line">VTP-Server-1(config-vlan)#exit</span><br><span class="line">VTP-Server-1(config)#vlan 20</span><br><span class="line">VTP-Server-1(config-vlan)#name Example-VLAN-20</span><br><span class="line">VTP-Server-1(config-vlan)#exit</span><br><span class="line">VTP-Server-1(config)#vlan 30</span><br><span class="line">VTP-Server-1(config-vlan)#name Management-VLAN</span><br><span class="line">VTP-Server-1(config-vlan)#exit</span><br><span class="line">VTP-Server-1(config)#interface range FastEthernet0/1 – 2</span><br><span class="line">VTP-Server-1(config-if-range)#switchport</span><br><span class="line">VTP-Server-1(config-if-range)#switchport access vlan 10</span><br><span class="line">VTP-Server-1(config-if-range)#switchport mode access</span><br><span class="line">VTP-Server-1(config-if-range)#exit</span><br><span class="line">VTP-Server-1(config)#interface range FastEthernet0/3 – 4</span><br><span class="line">VTP-Server-1(config-if-range)#switchport</span><br><span class="line">VTP-Server-1(config-if-range)#switchport access vlan 20</span><br><span class="line">VTP-Server-1(config-if-range)#switchport mode access</span><br><span class="line">VTP-Server-1(config-if-range)#exit</span><br><span class="line">VTP-Server-1(config)#interface FastEthernet0/24</span><br><span class="line">VTP-Server-1(config-if)#switchport</span><br><span class="line">VTP-Server-1(config-if)#switchport trunk encapsulation dot1q</span><br><span class="line">VTP-Server-1(config-if)#switchport mode trunk</span><br><span class="line">VTP-Server-1(config-if)#switchport trunk native vlan 30</span><br><span class="line">VTP-Server-1(config-if)#exit</span><br><span class="line">VTP-Server-1(config)#interface vlan 30</span><br><span class="line">VTP-Server-1(config-if)#description ‘This is the Management Subnet’</span><br><span class="line">VTP-Server-1(config-if)#ip address 10.30.30.2 255.255.255.0</span><br><span class="line">VTP-Server-1(config-if)#no shutdown</span><br><span class="line">VTP-Server-1(config-if)#exit</span><br><span class="line">VTP-Server-1(config)#ip default-gateway 10.30.30.1</span><br></pre></td></tr></table></figure>
+<p><strong>路由配置：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">R1(config)#interface FastEthernet0/0</span><br><span class="line">R1(config-if)#no ip address</span><br><span class="line">R1(config-if)#no shut &lt;- 这一步相当重要，否则子接口也会处于 down down 状态</span><br><span class="line">R1(config-if)#exit</span><br><span class="line">R1(config)#interface FastEthernet0/0.10</span><br><span class="line">R1(config-subitf)#description ‘Subinterface For VLAN 10’</span><br><span class="line">R1(config-subif)#encapsulation dot1Q 10</span><br><span class="line">R1(config-subif)#ip add 10.10.10.1 255.255.255.0</span><br><span class="line">R1(config-subif)#exit</span><br><span class="line">R1(config)#interface FastEthernet0/0.20</span><br><span class="line">R1(config-subitf)#description ‘Subinterface For VLAN 20’</span><br><span class="line">R1(config-subif)#encapsulation dot1Q 20</span><br><span class="line">R1(config-subif)#ip add 10.20.20.1 255.255.255.0</span><br><span class="line">R1(config-subif)#exit</span><br><span class="line">R1(config)#interface FastEthernet0/0.30</span><br><span class="line">R1(config-subitf)#description ‘Subinterface For Management’</span><br><span class="line">R1(config-subif)#encapsulation dot1Q 30 native</span><br><span class="line">R1(config-subif)#ip add 10.30.30.1 255.255.255.0</span><br><span class="line">R1(config-subif)#exit</span><br></pre></td></tr></table></figure>
+<p>此方案的主要优在于，路由器上仅需一个物理接口。主要的劣势在于，该物理端口的带宽，是为所配置的多个子接口所公用的。因此，如果存在很多 VLAN 间流量时，路由器就很快会成为网络的性能瓶颈。</p>
+<h1 id="采用交换机虚拟接口的-VLAN-间路由"><a href="#采用交换机虚拟接口的-VLAN-间路由" class="headerlink" title="采用交换机虚拟接口的 VLAN 间路由"></a>采用交换机虚拟接口的 VLAN 间路由</h1><p>多层交换机支持在物理接口上配置 IP 地址。但要先用接口配置命令 no switchport 对这些接口进行配置，以允许管理员在其上配置 IP 地址。除开使用物理接口外，多层交换机还支持交换机虚拟接口（Switch Virtual Interfaces, SVIs ）技术。</p>
+<p>SVIs 是一系列代表了 VLAN 的逻辑接口。尽管某个交换机虚拟接口代表了一个 VLAN，它也不是在某个 VLAN 在交换机上配置出来时，就自动配置出来的；它必须要管理员通过执行 interface vlan [number] 全局配置命令，手动加以配置。而那些诸如 IP 分址等的三层配置参数，也要与在物理接口上一样，在交换机虚拟接口予以配置。</p>
+<p>以下输出演示了在单一交换机上实现 VLAN 间路由，做出的交换机虚拟接口配置。此输出引用了本小节前面的配置输出所用到的 VLANs。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">VTP-Server-1(config)#vlan 10</span><br><span class="line">VTP-Server-1(config-vlan)#name Example-VLAN-10</span><br><span class="line">VTP-Server-1(config-vlan)#exit</span><br><span class="line">VTP-Server-1(config)#vlan 20</span><br><span class="line">VTP-Server-1(config-vlan)#name Example-VLAN-20</span><br><span class="line">VTP-Server-1(config-vlan)#exit</span><br><span class="line">VTP-Server-1(config)#interface range FastEthernet0/1 – 2</span><br><span class="line">VTP-Server-1(config-if-range)#switchport</span><br><span class="line">VTP-Server-1(config-if-range)#switchport mode access</span><br><span class="line">VTP-Server-1(config-if-range)#switchport access vlan 10</span><br><span class="line">VTP-Server-1(config-if-range)#exit</span><br><span class="line">VTP-Server-1(config)#interface range FastEthernet0/3 – 4</span><br><span class="line">VTP-Server-1(config-if-range)#switchport</span><br><span class="line">VTP-Server-1(config-if-range)#switchport mode access</span><br><span class="line">VTP-Server-1(config-if-range)#switchport access vlan 20</span><br><span class="line">VTP-Server-1(config-if-range)#exit</span><br><span class="line">VTP-Server-1(config)#interface vlan 10</span><br><span class="line">VTP-Server-1(config-if)#description “SVI for VLAN 10”</span><br><span class="line">VTP-Server-1(config-if)#ip address 10.10.10.1 255.255.255.0</span><br><span class="line">VTP-Server-1(config-if)#no shutdown</span><br><span class="line">VTP-Server-1(config-if)#exit</span><br><span class="line">VTP-Server-1(config)#interface vlan 20</span><br><span class="line">VTP-Server-1(config-if)#description ‘SVI for VLAN 10’</span><br><span class="line">VTP-Server-1(config-if)#ip address 10.20.20.1 255.255.255.0</span><br><span class="line">VTP-Server-1(config-if)#no shutdown</span><br><span class="line">VTP-Server-1(config-if)#exit</span><br></pre></td></tr></table></figure>
+<h3 id="在用到多层交换机时，交换机虚拟端口是推荐的配置方法，和实现-VLAN-间路由的首选方案。"><a href="#在用到多层交换机时，交换机虚拟端口是推荐的配置方法，和实现-VLAN-间路由的首选方案。" class="headerlink" title="在用到多层交换机时，交换机虚拟端口是推荐的配置方法，和实现 VLAN 间路由的首选方案。"></a>在用到多层交换机时，交换机虚拟端口是推荐的配置方法，和实现 VLAN 间路由的首选方案。</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Timi-cat</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/">http://example.com/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Timi-cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="/img/wz.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/12/13/%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5%E7%9A%84%E5%8C%BA%E5%88%AB/" title="软链接和硬链接的区别"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">软链接和硬链接的区别</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Timi-cat</div><div class="author-info__description">Timi-cat的个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-number">1.</span> <span class="toc-text">交换机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSI%E5%92%8CTCP%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">OSI和TCP模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E5%B1%82-%E2%80%93-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">第七层 – 应用层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E7%A4%BA%E5%B1%82"><span class="toc-number">2.2.</span> <span class="toc-text">表示层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D%E5%B1%82"><span class="toc-number">2.3.</span> <span class="toc-text">会话层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="toc-number">2.4.</span> <span class="toc-text">传输层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">2.5.</span> <span class="toc-text">网络层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="toc-number">2.6.</span> <span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="toc-number">2.7.</span> <span class="toc-text">物理层</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E8%A7%A3%E6%9E%90%E5%8D%8F%E8%AE%AE%EF%BC%8CAddress-Resolution-Protocol-ARP"><span class="toc-number">3.</span> <span class="toc-text">地址解析协议，Address Resolution Protocol, ARP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%90%86ARP"><span class="toc-number">3.2.</span> <span class="toc-text">代理ARP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VLAN"><span class="toc-number">4.</span> <span class="toc-text">VLAN</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5%E9%93%BE%E8%B7%AF-Access-links"><span class="toc-number">5.</span> <span class="toc-text">接入链路 Access links</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E7%BB%A7-Trunk"><span class="toc-number">6.</span> <span class="toc-text">中继 Trunk</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VLAN%E9%97%B4%E8%B7%AF%E7%94%B1"><span class="toc-number">7.</span> <span class="toc-text">VLAN间路由</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%87%E7%94%A8%E7%89%A9%E7%90%86%E7%9A%84%E8%B7%AF%E7%94%B1%E5%99%A8%E6%8E%A5%E5%8F%A3%E7%9A%84-VLAN-%E9%97%B4%E8%B7%AF%E7%94%B1"><span class="toc-number">7.1.</span> <span class="toc-text">采用物理的路由器接口的 VLAN 间路由</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%B7%AF%E7%94%B1%E5%99%A8%E5%AD%90%E6%8E%A5%E5%8F%A3%E7%9A%84-VLAN-%E9%97%B4%E8%B7%AF%E7%94%B1"><span class="toc-number">8.</span> <span class="toc-text">使用路由器子接口的 VLAN 间路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%87%E7%94%A8%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%99%9A%E6%8B%9F%E6%8E%A5%E5%8F%A3%E7%9A%84-VLAN-%E9%97%B4%E8%B7%AF%E7%94%B1"><span class="toc-number">9.</span> <span class="toc-text">采用交换机虚拟接口的 VLAN 间路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%94%A8%E5%88%B0%E5%A4%9A%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%9C%BA%E6%97%B6%EF%BC%8C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E8%99%9A%E6%8B%9F%E7%AB%AF%E5%8F%A3%E6%98%AF%E6%8E%A8%E8%8D%90%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%EF%BC%8C%E5%92%8C%E5%AE%9E%E7%8E%B0-VLAN-%E9%97%B4%E8%B7%AF%E7%94%B1%E7%9A%84%E9%A6%96%E9%80%89%E6%96%B9%E6%A1%88%E3%80%82"><span class="toc-number">9.0.1.</span> <span class="toc-text">在用到多层交换机时，交换机虚拟端口是推荐的配置方法，和实现 VLAN 间路由的首选方案。</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="计算机网络第一天"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络第一天"/></a><div class="content"><a class="title" href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="计算机网络第一天">计算机网络第一天</a><time datetime="2023-12-14T14:12:07.000Z" title="发表于 2023-12-14 22:12:07">2023-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/13/%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5%E7%9A%84%E5%8C%BA%E5%88%AB/" title="软链接和硬链接的区别"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软链接和硬链接的区别"/></a><div class="content"><a class="title" href="/2023/12/13/%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5%E7%9A%84%E5%8C%BA%E5%88%AB/" title="软链接和硬链接的区别">软链接和硬链接的区别</a><time datetime="2023-12-13T10:57:53.000Z" title="发表于 2023-12-13 18:57:53">2023-12-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/12/%E4%B8%BA%E4%BB%80%E4%B9%88linux%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E9%9C%80%E8%A6%81%E5%BE%88%E5%A4%9A%E4%BE%9D%E8%B5%96/" title="为什么linux的安装包需要很多依赖"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="为什么linux的安装包需要很多依赖"/></a><div class="content"><a class="title" href="/2023/12/12/%E4%B8%BA%E4%BB%80%E4%B9%88linux%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85%E9%9C%80%E8%A6%81%E5%BE%88%E5%A4%9A%E4%BE%9D%E8%B5%96/" title="为什么linux的安装包需要很多依赖">为什么linux的安装包需要很多依赖</a><time datetime="2023-12-12T15:37:03.000Z" title="发表于 2023-12-12 23:37:03">2023-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/12/shell%E2%80%94%E2%80%94%E2%80%94%E6%8F%90%E4%BE%9B%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E7%9A%84%E7%A8%8B%E5%BA%8F/" title="shell———提供用户界面的程序"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="shell———提供用户界面的程序"/></a><div class="content"><a class="title" href="/2023/12/12/shell%E2%80%94%E2%80%94%E2%80%94%E6%8F%90%E4%BE%9B%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E7%9A%84%E7%A8%8B%E5%BA%8F/" title="shell———提供用户界面的程序">shell———提供用户界面的程序</a><time datetime="2023-12-11T18:28:10.000Z" title="发表于 2023-12-12 02:28:10">2023-12-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/05/%E9%83%A8%E7%BD%B2hexo%E4%BB%A5%E5%8F%8A%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" title="部署hexo以及主题美化遇到的问题"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="部署hexo以及主题美化遇到的问题"/></a><div class="content"><a class="title" href="/2023/12/05/%E9%83%A8%E7%BD%B2hexo%E4%BB%A5%E5%8F%8A%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" title="部署hexo以及主题美化遇到的问题">部署hexo以及主题美化遇到的问题</a><time datetime="2023-12-05T10:43:58.000Z" title="发表于 2023-12-05 18:43:58">2023-12-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Timi-cat</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer" data-id="8900865262" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="/true"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
