@@ -1,0 +1,388 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络第四天 | Timi-cat</title><meta name="author" content="Timi-cat"><meta name="copyright" content="Timi-cat"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="生成树协议STPSTP（生成树协议）是一种用于构建环路无环的网络拓扑的协议。它通过选择一条主干链路，将其它冗余链路置为阻塞状态，从而避免数据包在网络中产生环路。STP使用一种分布式算法，称为根桥选举算法，来确定主干链路和阻塞链路。当网络中的拓扑变化时，STP会重新计算生成树，确保网络的稳定性。生成树协议（STP）是一种用于防止网络环路和提供网络冗余的网络协议。在一个局域网中，如果存在多条路径连接两">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络第四天">
+<meta property="og:url" content="http://example.com/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/index.html">
+<meta property="og:site_name" content="Timi-cat">
+<meta property="og:description" content="生成树协议STPSTP（生成树协议）是一种用于构建环路无环的网络拓扑的协议。它通过选择一条主干链路，将其它冗余链路置为阻塞状态，从而避免数据包在网络中产生环路。STP使用一种分布式算法，称为根桥选举算法，来确定主干链路和阻塞链路。当网络中的拓扑变化时，STP会重新计算生成树，确保网络的稳定性。生成树协议（STP）是一种用于防止网络环路和提供网络冗余的网络协议。在一个局域网中，如果存在多条路径连接两">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/wz.jpg">
+<meta property="article:published_time" content="2023-12-18T09:14:46.000Z">
+<meta property="article:modified_time" content="2023-12-19T12:19:56.190Z">
+<meta property="article:author" content="Timi-cat">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/wz.jpg"><link rel="shortcut icon" href="/img/touxiang.jpg"><link rel="canonical" href="http://example.com/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机网络第四天',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-19 20:19:56'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-sitemap"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/wz.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Timi-cat"><span class="site-name">Timi-cat</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-sitemap"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络第四天</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-18T09:14:46.000Z" title="发表于 2023-12-18 17:14:46">2023-12-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-19T12:19:56.190Z" title="更新于 2023-12-19 20:19:56">2023-12-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络第四天"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="生成树协议"><a href="#生成树协议" class="headerlink" title="生成树协议"></a>生成树协议</h1><h2 id="STP"><a href="#STP" class="headerlink" title="STP"></a>STP</h2><p>STP（生成树协议）是一种用于构建环路无环的网络拓扑的协议。它通过选择一条主干链路，将其它冗余链路置为阻塞状态，从而避免数据包在网络中产生环路。STP使用一种分布式算法，称为根桥选举算法，来确定主干链路和阻塞链路。当网络中的拓扑变化时，STP会重新计算生成树，确保网络的稳定性。<br>生成树协议（STP）是一种用于防止网络环路和提供网络冗余的网络协议。在一个局域网中，如果存在多条路径连接两个设备，可能会导致广播风暴和MAC地址学习错误。STP的主要作用是通过建立一棵生成树，禁用环路中的某些链路，以消除环路。<br>STP的工作原理如下：</p>
+<p>1.每个网络设备（交换机）都有一个桥优先级（Bridge Priority）和一个桥ID（Bridge ID）。<br>2.每个设备通过发送BPDU（Bridge Protocol Data Unit）消息来与其它设备进行通信。<br>3.每个设备根据接收到的BPDU消息来确定根桥和最短路径。<br>4.设备选择根桥，并将自己的端口设置为根端口或非根端口。<br>STP适用于较小规模的网络，但它的收敛速度较慢，对网络中的拓扑变化反应不够迅速。</p>
+<h3 id="BPDU"><a href="#BPDU" class="headerlink" title="BPDU"></a>BPDU</h3><p>配置 BPDUs 是由 LAN 交换机发出，用于就生成树拓扑进行通信和计算。在交换机端口初始化后，该端口被置为阻塞状态，同时一个 BPDU 被发送给交换机中的所有端口。<strong>默认情况下，直到其与其它交换机进行配置 BPDUs 的交换为止，所有交换机最初都假定其为生成树的根。</strong>在某端口仍将其自身配置 BPDUs 视为最具吸引力（the most attractive）时，其就会持续发送配置 BPDUs 。这些交换机基于以下 4 个因素（以列出顺序），确定出最佳配置 BPDU （the best Configuration BPDU）。</p>
+<p>有着最低的根桥 ID 的, lowest Root Bridge ID</p>
+<p>有着到根桥最低根路径开销的，lowest Root path cost to Root Bridge</p>
+<p>有着最低发送者桥 ID 的，lowest sender Bridge ID</p>
+<p>有着最低发送者端口 ID 的，lowest sender Port ID</p>
+<p>配置 BPDU 交换的完成，导致以下动作。</p>
+<p>选举出整个生成树域的根桥, a Root Switch is elected for the entire Spanning Tree domain</p>
+<p>选举出生成树域中所有非根交换机上的根端口，a Root Port is elected on every Non-Root Switch in the Spanning Tree domain</p>
+<p>选举出所有 LAN 网段中的指定交换机，a Designated Switch is elected for every LAN segment</p>
+<p>选举出所有网段的指定交换机的指定端口(根交换机上的所有活动端口也都是指定端口)，a Designated Port is elected on the Designated Switch for every segment(all active ports on the Root Switch are also designated)</p>
+<p>通过阻塞冗余路径，网络中的循环得以消除，loops in the network are eliminated by blocking redundant paths<br>一旦所有交换机端口都处于转发或阻塞状态，生成树网络（the Spanning Tree network）就完成了收敛, 此时配置 BPDUs 就由根桥以默认每两秒的间隔发出。这就是配置 BPDUs 的发端。配置 BPDUs 通过根桥上的指定端口，转发到下游邻居交换机（this is referred to as the origination of Configuration BPDUs. The Configuration BPDUs are forwarded to downstream neighboring switches via the Designated Port on the Root Bridge）。</p>
+<p>当非根桥（a Non-Root Bridge）在其提供了到根桥最优路径的根端口上，接收到一个配置 BPDU 时，就会通过其指定端口，发送出一个该 BPDU 的更新版本。这就是BPDUs的传播（when a Non-Root Bridge receives a Configuration BPDU on its Root Port, which is the port that provides the best path to the Root Bridge, it sends an updated version of the BPDU via its Designated Port(s). This is referred to as the propagation of BPDUs）。</p>
+<p>指定端口则是指定交换机上，在转发来自那个 LAN 网段的数据包到根桥时，有着最低路径开销的端口（the Designated Port is a port on the Designated Switch that has the lowest cost when forwarding packets from that LAN segment to the Root Bridge）。</p>
+<p>一旦生成树网络得以收敛，便总是会有自根桥传输给 STP 域内其它交换机的一个配置 BPDU 在传送。而要记住在生成树网络完成收敛后的配置 BPDUs 数据流的最简单方法，就是记住以下 4 条规则。</p>
+<p>配置 BPDUs 是从根桥发出且通过指定端口发送的, a Configuration BPDU originates on the Root Bridge and is sent via the Designated Port</p>
+<p>配置 BPDUs 是由非根桥的根端口上接收的，a Configuration BPDU is received by a Non-Root Bridge on a Root Port</p>
+<p>配置 BPDU 是由非根桥的指定端口上传送的，a Configuration BPDU is transmitted by a Non-Root Bridge on a Designated Port</p>
+<p>在所有单个 LAN 区段上，都只有一个指定端口（在某台指定交换机上），there is only one Designated Port (on a Designated Switch) on any single LAN segment<br><img src="/img/loading.gif" data-original="https://github.com/gnu4cn/ccna60d/blob/main/src/images/3102.png" alt="图片"><br>参考上图, 该配置 BPDU 源自根桥，且是通过根桥上的指定端口发送出来，前往那些非根桥交换机，也就是Switch 2和Switch 3。</p>
+<p>非根桥Switch 2和Switch 3在其有着到根桥最优路径的根端口上，接收到配置 BPDU 。</p>
+<p>Switch 2和Switch 3对接收到的配置 BPDU 进行修改（更新），让后在其指定端口上转发出去。<strong>Switch 2就是该 LAN 网段上其自身及Switch 4的指定交换机，Switch 3是该 LAN 网段上其自身及Switch 5的指定交换机。</strong>而存在于指定交换机上的指定端口，则是在转发来自该 LAN 区段数据包到根交换机时，有着最低路径开销的端口。</p>
+<p>在Switch 4和Switch 5之间的 LAN 网段上，Switch 4被选举为指定交换机，同时指定端口也处于其上。因为在一个网段上只能有一台指定交换机，所以Switch 4和Switch 5之间网段上，Switch 5的端口，就被阻塞掉了。该端口将不会转发任何 BPDUs 。</p>
+<h3 id="生成树端口状态"><a href="#生成树端口状态" class="headerlink" title="生成树端口状态"></a>生成树端口状态</h3><p>Spanning Tree Port States</p>
+<p>生成树算法（Spanning Tree Algorithm, STA）定义了 STP 控制下端口在进入到活动的转发状态之前，需要经历的几种状态。802.1D标准中端口状态有下面这些。</p>
+<p>阻塞中 – 仅接收 BPDUs （为期 20s ）， blocking – BPDUs received only (20 seconds)</p>
+<p>侦听中 – 有 BPDUs 发出和接收（为期 15s ），listening – BPDUs sent and received (15 seconds)</p>
+<p>学习中 – 桥接表被建立起来（为期 15s ），learning – bridging table is built (15 seconds)</p>
+<p>转发中 – 发送&#x2F;接收数据，forwarding – sending&#x2F;receiving data</p>
+<p>关闭 – 管理性关闭，disabled – administratively down</p>
+<p>端口按以下方式在这些状态间依序移动。</p>
+<p>从初始化状态到阻塞中状态</p>
+<p>从阻塞中状态到侦听中状态或关闭状态</p>
+<p>从侦听状态到学习状态或关闭状态</p>
+<p>从学习状态到转发或关闭状态</p>
+<p>从转发状态到关闭状态</p>
+<h4 id="阻塞状态"><a href="#阻塞状态" class="headerlink" title="阻塞状态"></a>阻塞状态</h4><p>处于阻塞状态的交换机端口，完成以下动作。</p>
+<p>丢弃在该端口上接收到的来自所连接网段的数据帧，discards frames received on the port from the attached segment</p>
+<p>丢弃交换自另一端口的数据帧，discards frames switched from another port</p>
+<p>不将工作站地址放入到其地址数据库中，does not incorporate station location into its address database</p>
+<p>接收 BPDUs 并将这些 BPDUs 引导给系统模块，receives BPDUs and directs them to the system module</p>
+<p>不传送自系统模块接收到的 BPDUs ，does not transmit BPDUs received from the system module</p>
+<p>接收网络管理报文，并对这些报文进行响应，receives and responds to network management messages</p>
+<h4 id="侦听状态"><a href="#侦听状态" class="headerlink" title="侦听状态"></a>侦听状态</h4><p>侦听状态是端口在阻塞状态之后所进入的第一个过渡状态。在 STP 确定端口应参与到帧转发时，该端口就进入此状态。处于侦听状态的交换机端口完成以下动作。</p>
+<p>丢弃接收自所连接网段的帧, discards frames received from the attached segment</p>
+<p>丢弃转发自另一端口的帧, discards frames switched from another port</p>
+<p>不将工作站地址加入到其地址数据库，does not incorporate station location into its address database</p>
+<p>接收 BPDUs 并将这些 BPDUs 引导给系统模块，receives BPDUs and directs them to the system module</p>
+<p>接收、处理并传送接收自系统模块的 BPDUs （在这一点上，与阻塞状态有所不同）, receives, processes, and transmits BPDUs received from the system module</p>
+<p>对网络管理报文进行接收和响应，receives and responds to network management messages</p>
+<h4 id="学习状态"><a href="#学习状态" class="headerlink" title="学习状态"></a>学习状态</h4><p>学习状态是端口所进入的第二个过渡状态。此状态在侦听状态之后，且在端口进入转发状态之前到来。在此状态中，端口学习 MAC 地址并将学习到的 MAC 地址装入到其转发表中。处于学习状态的交换机端口完成以下动作。</p>
+<p>丢弃接收自所连接网段的帧, discards frames received from the attached segment</p>
+<p>丢弃转发自另一端口的帧, discards frames switched from another port</p>
+<p>将工作站地址包含（安装）到其地址数据库（这一点与侦听状态有所不同），incorporates(installs) station location into its address database</p>
+<p>接收 BPDUs 并将这些 BPDUs 引导给系统模块，receives BPDUs and directs them to the system module</p>
+<p>接收、处理并传送接收自系统模块的BPDUs, receives, processes, and transmits BPDUs received from the system module</p>
+<p>对网络管理报文进行接收和响应，receives and responds to network management messages</p>
+<h4 id="转发状态"><a href="#转发状态" class="headerlink" title="转发状态"></a>转发状态</h4><p>转发状态是端口在学习状态之后所进入的第三个过渡状态。处于转发状态的端口对帧进行转发。处于转发状态的交换机端口完成以下动作。</p>
+<p>转发接收自所连接网段的数据帧</p>
+<p>转发交换自另一端口的数据帧（以上两点与学习状态不同，标志着开始转发数据）</p>
+<p>将站点地址信息加入（安装）到其地址数据库</p>
+<p>接收 BPDUs 并将这些 BPDUs 导向给系统模块</p>
+<p>处理接收自系统模块的BPDUs</p>
+<p>接收网络管理报文并对其进行响应</p>
+<h4 id="关闭状态"><a href="#关闭状态" class="headerlink" title="关闭状态"></a>关闭状态</h4><p>关闭状态不是端口正常 STP 进展的部分。而是端口被网络管理员进行管理性关闭，或因为某种错误条件而被系统所关闭时，就被认为处于关闭状态。关闭的端口完成以下动作。</p>
+<p>丢弃接收自所连接网段的数据帧</p>
+<p>丢弃转发自另一端口的数据帧</p>
+<p>不将工作站地址加入其地址数据库</p>
+<p>接收 BPDUs 但不将这些 BPDUs 导向给系统模块</p>
+<p>不接收来自系统模块的BPDUs</p>
+<p>对网络管理报文进行接收和响应</p>
+<h3 id="桥ID"><a href="#桥ID" class="headerlink" title="桥ID"></a>桥ID</h3><p>位于某个生成树域中的交换机，都有一个用于对其进行唯一性区分的桥 ID （Bridge ID, BID）。 BID 还用于协助完成 STP 根桥(an STP Root Bridge)的选举， STP 根桥将在稍后讲到。 BID 是由一个 6 字节的 MAC 地址及 2 字节的桥优先级（a 2-byte Bridge Priority）构成的 8 字节字段。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Switch2#show spanning-tree vlan 2</span><br><span class="line"></span><br><span class="line">VLAN0002</span><br><span class="line">    Spanning tree enabled protocol ieee</span><br><span class="line">    Root ID Priority    32768</span><br><span class="line">            Address     0009.7c87.9081</span><br><span class="line">            Cost        19</span><br><span class="line">            Port        1 (FastEthernet0/1)</span><br><span class="line">            Hello Time  2 sec Max Age 20 sec Forward Delay 15 sec</span><br><span class="line">    Bridge ID Priority  32770 (priority 32768 sys-id-ext 2)</span><br><span class="line">            Address     0008.21a9.4f80</span><br><span class="line">            Hello Time  2 sec Max Age 20 sec Forward Delay 15 sec</span><br><span class="line">            Aging Time  300</span><br><span class="line"></span><br><span class="line">Interface   Port ID                 Designated                  Port ID</span><br><span class="line">Name        Prior.Nbr   Cost    Sts Cost        Bridge ID       Prior.Nbr</span><br><span class="line">----------  ---------   ----    --- ----------- --------------  ---------</span><br><span class="line">Fa0/1       128.1       19      FWD 0  32768    0009.7c87.9081  128.13</span><br><span class="line">Fa0/2       128.2       19      FWD 19 32770    0008.21a9.4f80  128.2</span><br></pre></td></tr></table></figure>
+<p>上面输出中的 MAC 地址是得自交换机背板或管理引擎的硬件地址（the hardware address derived from the switch backplane or supervisor engine， 又名为基底 MAC 地址，the base MAC address）。在802.1D标准中，每个 VLAN 都需要一个唯一 BID 。</p>
+<p>大多数思科 Catalyst 交换机都有一个可用作 VLANs 的 BIDs 的、 1024 个 MAC 地址的地址池。这些 MAC 地址被顺序分配，也就是该范围中的第一个 MAC 地址分配给VLAN 1, 第二个给VLAN 2, 第三个给VLAN 3, 以致第四个第五个等等。这样就提供了支持标准范围 VLANs 的支持能力，但要支持扩展范围的 VLANs ，就需要更多的 MAC 地址。该问题在802.1t（802.1D的技术和编辑修正）标准中得以解决</p>
+<h3 id="根桥选举"><a href="#根桥选举" class="headerlink" title="根桥选举"></a>根桥选举</h3><p>默认情况下，紧接着初始化之后，所有交换机最初都假定它们是生成树的根，直到它们与其他交换机交换 BPDUs 为止。在交换机交换 BPDUs 时，就举行一次选举，而网络中有着最低桥 ID 的交换机就被选举为 STP 根桥(the STP Root Bridge)。如有两台或更多交换机有着相同的优先级，则选取有着最低顺序 MAC 地址的交换机作为根桥。<br><img src="/img/loading.gif" data-original="https://github.com/gnu4cn/ccna60d/blob/main/src/images/3104.png" alt="图片"><br>四台交换机–Switch 1、Switch 2、Switch 3及Switch 4, 处于同一 STP 域中。默认所有交换机都有着桥优先级 32768 。为确定哪台交换机将成为根桥，并由此打破不分胜负的局面， STP 将基于最低顺序 MAC 地址选择出根桥交换机（in order to determine which switch will become the Root Bridge, and thus break the tie, STP will select the switch based on the lowest-order MAC address）。那么基于此标准，并参考图31.4给出的信息，Switch 1将被选举为根桥。</p>
+<h3 id="生成树开销及优先级"><a href="#生成树开销及优先级" class="headerlink" title="生成树开销及优先级"></a>生成树开销及优先级</h3><p><strong>STP使用开销及优先级数值来确定到根桥的最优路径。</strong>这些数值此时用在根端口（the Root Port）的选举中，掌握开销及优先级数值的计算，对于理解为何生成树选举一个端口而不是另一个，是十分重要的。<br>生成树算法的一项关键功能，就是尝试提供出网络中的各台交换机自根桥的最短路径。而该最短路径一旦选定，就被用于转发数据，而将其它冗余链路置为阻塞状态。生成树算法用到两个数值来确定哪个端口将被置为转发状态（也就是到根桥的最优路径），以及哪些端口将被置为阻塞状态。这两个数值就是端口开销和端口优先级。</p>
+<h4 id="端口开销"><a href="#端口开销" class="headerlink" title="端口开销"></a>端口开销</h4><p>802.1D规格分配 16 位（短整数）基于端口带宽的默认端口开销值给每个端口。因为管理员同时有着手动分配端口开销值（ 1 和 65535 之间）的能力，所以该 16 位值就只用在那些未有具体配置了端口开销的端口。下表31.1列出了在应用短整数方式计算端口开销时各种类型端口的默认值。</p>
+<table>
+<thead>
+<tr>
+<th>带宽</th>
+<th>默认端口开销</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4Mbps</td>
+<td>250</td>
+</tr>
+<tr>
+<td>10Mbps</td>
+<td>100</td>
+</tr>
+<tr>
+<td>16Mbps</td>
+<td>62</td>
+</tr>
+<tr>
+<td>100Mbps</td>
+<td>19</td>
+</tr>
+<tr>
+<td>1Gbps</td>
+<td>4</td>
+</tr>
+<tr>
+<td>10Gbps</td>
+<td>2</td>
+</tr>
+<tr>
+<td>重要的是记住带有更低的（数值）开销的端口是更为首选的端口；端口开销越低，那个特定端口被选举为根端口的可能性就越高（the lower the port cost, the higher the probability of that particular port being elected the Root Port）。<strong>端口开销全局重要，并影响整个生成树网络。</strong>该数值被配置在生成树域中的所有非根交换机上（on all Non-Root Switches in the Spanning Tree domain）。</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="根端口选举"><a href="#根端口选举" class="headerlink" title="根端口选举"></a>根端口选举</h4><p>生成树算法定义了三种端口类型：根端口、指定端口及非指定端口。这些端口类型是有生成树算法选举出来，并被置为相应状态（比如转发中或阻塞中状态）。在生成树选举过程中，如存在悬而不决的情况，就会用到以下数值作为打破僵局方式。</p>
+<p>最低的根桥ID, lowest Root Bridge ID<br>到根桥的最低根路径开销, lowest Root path cost to Root Bridge<br>最低的发送方桥ID, lowest sender Bridge ID<br>最低的发送方端口 ID ，lowest sender Port ID<br>生成树<strong>根端口是在该设备将数据包转发到根桥时，提供出最优路径，或最低开销的端口。</strong>也就是说，根端口是接收到该交换机的最优 BPDU 的端口，而这又表明了在路径开销上其是到根桥的最短路径。根端口是基于根桥路径开销选举出的。</p>
+<p>根桥路径开销又是基于连接到根桥的所有链路的累积开销（路径开销）计算出的。路径开销是各个端口贡献给根桥开销的数值（the path cost is the value that each port contributes to the Root Bridge path cost）。因为此概念通常是十分令人困惑，在下图对其进行了演示。<br><img src="/img/loading.gif" data-original="https://github.com/gnu4cn/ccna60d/raw/main/src/images/3107.png" alt="图片"><br>根桥发出一个带有根桥路径开销值 0 的 BPDU ，因为其端口直接位于该根桥上。此 BPDU 发送给Switch 2和Switch 3。<br>当Switch 2和Switch 3接收到来自根桥的 BPDU 时，它们便基于各自入站借口加上其自己的路径开销。因为Switch 2和Switch 3都是通过 GigabitEthernet 连接与根桥相连，所以它们将从根桥接收到的路径开销值（ 0 ）与它们的 GigabitEthernet 路径开销值（ 4 ）相加。Switch 2及Switch 3经由GigabitEthernet0&#x2F;1到根桥的根桥路径开销也就是0+4&#x3D;4。<br>Switch 2和Switch 3将新的 BPDUs 送出至其各自的邻居，也就是Switch 4和Switch 6。这些 BPDUs 包含了新的累积值（ 4 ）作为根桥路径开销。<br>当Switch 4和Switch 6接收到分别来自Switch 2和Switch 3的 BPDUs 时，它们根据入站借口对接收到的根桥路径开销予以增长。因为使用的是GigabitEthernet, 从Switch 2和Switch 3接收到的值被加上 4 。那么在Switch 4和Switch 6上经由其各自GigabitEthernet0&#x2F;1接口的根桥路径开销就是0+4+4&#x3D;8。<br>Switch 5接收到两个 BPDUs ：一个来自Switch 4，另一个来自Switch 6。接收自Switch 4的 BPDU 有着根桥路径开销0+4+4+4&#x3D;12。接收自Switch 6的 BPDU 有着根桥路径开销0+4+4+19&#x3D;27。因为包含于接收自Switch 4的 BPDU 中的根桥路径开销值好于接收自Switch 6的，Switch 5将选举GigabitEthernet0&#x2F;1作为根端口（the Root Port）。</p>
+<h4 id="指定端口选取"><a href="#指定端口选取" class="headerlink" title="指定端口选取"></a>指定端口选取</h4><p>与根端口不同，指定端口是指向与 STP 根相反方向的端口。该端口是指定设备（交换机）连接 LAN 的端口。指定端口同时也是在将来自 LAN 的数据包转发给根桥时有着最低路径开销的端口。<br><strong>指定端口的主要目的是阻止循环。</strong>在超过一台的交换机连接到同一网段时，所有交换机都将尝试对在那个网段上接收到的某个帧进行转发。这样的默认行为可能导致该帧的多个拷贝被多台交换机同时转发–从而造成网络循环。为避免这种默认行为，<strong>STP在所有网段上都选举出一个指定端口。</strong><em>这是因为根桥路径开销将始终为 0 。</em>STA的指定端口选举过程在下图中进行了演示。<br><img src="/img/loading.gif" data-original="https://github.com/gnu4cn/ccna60d/blob/main/src/images/3108.png" alt="图片"><br>在根桥和Switch 2之间的网段上，根桥的GigabitEthernet0&#x2F;1被选举为指定端口，因为该端口有着较低的根桥路径开销 0 。</p>
+<p>在根桥和Switch 3之间的网段，根桥的GigabitEthernet0&#x2F;2端口被选举作为指定端口，因为其有着较低的根桥路径开销 0 。</p>
+<p>在Switch 2和Switch 4之间的网段，Switch 2上的GigabitEthernet0&#x2F;2被选举为指定端口，因为Switch 2有着最低的根桥路径开销 4 。</p>
+<p>在Switch 3和Switch 6之间的网段，Switch 3上的GigabitEthernet0&#x2F;2端口被选举为指定端口，因为Switch 3有着最低的根桥路径开销 4 。</p>
+<p>在Switch 4和Switch 5之间的网段，Switch 4上的GigabitEthernet0&#x2F;2端口被选举为指定端口，因为Switch 4有着最低的根桥路径开销 8 。</p>
+<p>在Switch 5和Switch 6之间的网段，Switch 6上的GigabitEthernet0&#x2F;2被选举为指定端口，因为Switch 6有着最低的根桥路径开销 8 。</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>防止环路：通过计算生成树并禁用环路中的某些链路，STP可以防止环路的形成。<br>提供冗余：在生成树中，如果某一链路发生故障，STP会重新计算生成树，并启用替代链路。<br>根选举：STP会选举一个根桥（Root Bridge）作为生成树的根节点，以确定生成树的拓扑结构。</p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p>防止广播风暴：STP可以防止广播帧在网络中不断循环，从而避免广播风暴。<br>实现网络冗余：STP可以动态地调整生成树，确保在链路故障时网络仍然可用。<br>实现多层交换设备互联：STP可以在多层交换设备之间建立生成树，以实现互联</p>
+<h2 id="RSTP"><a href="#RSTP" class="headerlink" title="RSTP"></a>RSTP</h2><p>为了改善STP的收敛速度和性能，RSTP（快速生成树协议）被引入。RSTP是STP的改进版本，它在保持STP基本原理的同时，引入了一些新的机制来加快网络的收敛速度。<br>快速生成树协议（RSTP）是生成树协议（STP）的一种改进，它解决了STP收敛速度慢的问题。RSTP通过引入新的端口角色和状态，以及快速收敛算法，实现了生成树的快速收敛。</p>
+<h3 id="相比STP"><a href="#相比STP" class="headerlink" title="相比STP"></a>相比STP</h3><p>端口状态的改变：RSTP将端口状态划分为三种：指定（designated）、根（root）和备份（alternate），相比STP的端口状态，RSTP减少了状态切换的次数，从而加快了收敛速度。<br>快速收敛：RSTP通过减少BPDU的发送间隔和超时时间来加快收敛速度。当网络拓扑发生变化时，RSTP可以更快地重新计算生成树。<br>持续监听：RSTP通过定期发送BPDU消息来持续监听网络状态。当RSTP设备在一定时间内没有收到BPDU消息时，它会假设网络中的链路出现故障，并快速重新计算生成树，以确保网络的稳定性。<br>RSTP相对于STP来说，具有更快的收敛速度和更好的性能。它适用于中等规模的网络，并能够更好地适应网络拓扑的变化。</p>
+<h3 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h3><p>快速收敛：RSTP通过新的收敛算法实现了生成树的快速收敛。<br>向后兼容STP：RSTP与STP协议兼容，可以在STP和RSTP混合的网络环境中工作。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>提高生成树收敛速度：RSTP使得生成树在链路故障或网络拓扑变化时能够更快地收敛，减少了网络不可用的时间。<br>实现网络冗余和环路防护：与STP相同，RSTP可以防止环路的形成，并提供网络冗余。</p>
+<h2 id="MSTP"><a href="#MSTP" class="headerlink" title="MSTP"></a>MSTP</h2><p>在一些大规模的网络中，需要同时支持多个VLAN（虚拟局域网），而STP和RSTP只能为整个网络构建一个生成树。为了解决这个问题，MSTP（多生成树协议）被引入。MSTP允许在一个网络中为每个VLAN构建独立的生成树，从而提供更好的灵活性和可伸缩性。<br>多生成树协议（MSTP）是一种进一步优化生成树协议的方法，它允许在一个网络中创建多个生成树实例，每个实例负责不同的VLAN。这样，可以实现更好的负载均衡和资源利用。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>实例化：MSTP将网络分为多个实例，每个实例对应一个或多个VLAN。这样，可以为每个实例构建独立的生成树。<br>区域：MSTP将网络划分为多个区域，每个区域可以有独立的根桥和生成树。这样，可以减少生成树计算的复杂度，并提高网络的可扩展性。<br>VLAN到实例的映射：MSTP通过将VLAN映射到相应的实例，使得每个VLAN都可以有自己的生成树<br>MSTP在大规模网络中具有很好的适应性和可伸缩性。它可以更灵活地配置和管理生成树，以满足不同VLAN和区域的需求。</p>
+<h3 id="功能-2"><a href="#功能-2" class="headerlink" title="功能"></a>功能</h3><p>多生成树实例：MSTP允许在一个网络中创建多个生成树实例，每个实例负责不同的VLAN。<br>负载均衡：通过将不同的VLAN分配到不同的生成树实例，MSTP可以实现链路资源的负载均衡。<br>向后兼容RSTP和STP：MSTP与RSTP和STP协议兼容，可以在混合的网络环境中工作。</p>
+<h1 id="链路聚合"><a href="#链路聚合" class="headerlink" title="链路聚合"></a>链路聚合</h1><p>以太网链路聚合Eth-Trunk简称链路聚合，它通过将多条以太网物理链路捆绑在一起成为一条逻辑链路，从而实现增加链路带宽的目的。<br>同时，这些捆绑在一起的链路通过相互间的动态备份，可以有效地提高链路的可靠性。</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>随着网络规模不断扩大，用户对骨干链路的带宽和可靠性提出越来越高的要求。</p>
+<p>在传统技术中，常用更换高速率的接口板或更换支持高速率接口板的设备的方式来增加带宽，但这种方案需要付出高额的费用，而且不够灵活。</p>
+<p>采用链路聚合技术可以在不进行硬件升级的条件下，通过将多个物理接口捆绑为一个逻辑接口，达到增加链路带宽的目的。</p>
+<p>在实现增大带宽目的的同时，链路聚合采用备份链路的机制，可以有效的提高设备之间链路的可靠性。</p>
+<h2 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h2><p>提高可靠性<br>当某条活动链路出现故障时，流量可以切换到其他可用的成员链路上，从而提高链路聚合接口的可靠性。</p>
+<p>负载分担<br>在一个链路聚合组内，可以实现在各成员活动链路上的负载分担。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>如在两个设备之间通过三条以太网物理链路相连，将这三条链路捆绑在一起，就成为了一条逻辑链路。<br>这条逻辑链路的最大带宽等于原先三条以太网物理链路的带宽总和，从而达到了增加链路带宽的目的；<br>同时，这三条以太网物理链路相互备份，有效地提高了链路的可靠性。</p>
+<h2 id="链接聚合组，链路聚合接口"><a href="#链接聚合组，链路聚合接口" class="headerlink" title="链接聚合组，链路聚合接口"></a>链接聚合组，链路聚合接口</h2><p>链路聚合组LAG（Link Aggregation Group）是指将若干条以太链路捆绑在一起所形成的逻辑链路。<br>每个聚合组唯一对应着一个逻辑接口，这个逻辑接口称之为链路聚合接口或Eth-Trunk接口。<br>链路聚合接口可以作为普通的以太网接口来使用，与普通以太网接口的差别在于：<br>转发的时候链路聚合组需要从成员接口中选择一个或多个接口来进行数据转发。</p>
+<h2 id="成员接口和成员链路"><a href="#成员接口和成员链路" class="headerlink" title="成员接口和成员链路"></a>成员接口和成员链路</h2><p>组成Eth-Trunk接口的各个物理接口称为成员接口。<br>成员接口对应的链路称为成员链路。</p>
+<h2 id="活动接口和非活动接口、活动链路和非活动链路"><a href="#活动接口和非活动接口、活动链路和非活动链路" class="headerlink" title="活动接口和非活动接口、活动链路和非活动链路"></a>活动接口和非活动接口、活动链路和非活动链路</h2><p>链路聚合组的成员接口存在活动接口和非活动接口两种。<br>转发数据的接口称为活动接口，不转发数据的接口称为非活动接口。<br>活动接口对应的链路称为活动链路，非活动接口对应的链路称为非活动链路。</p>
+<h2 id="活动接口数上限阈值"><a href="#活动接口数上限阈值" class="headerlink" title="活动接口数上限阈值"></a>活动接口数上限阈值</h2><p>设置活动接口数上限阈值的目的是在保证带宽的情况下提高网络的可靠性。<br>当前活动链路数目达到上限阈值时，再向Eth-Trunk中添加成员接口，不会增加Eth-Trunk活动接口的数目，超过上限阈值的链路状态将被置为Down，作为备份链路。<br>例如，有8条无故障链路在一个Eth-Trunk内，每条链路都能提供1G的带宽，现在最多需要5G的带宽，那么上限阈值就可以设为5或者更大的值。<br>其他的链路就自动进入备份状态以提高网络的可靠性。<br>注：手工负载分担模式链路聚合不支持活动接口数上限阈值的配置。</p>
+<h2 id="手工模式链路聚合"><a href="#手工模式链路聚合" class="headerlink" title="手工模式链路聚合"></a>手工模式链路聚合</h2><p>根据是否启用链路聚合控制协议LACP，链路聚合分为手工模式和LACP模式。<br>手工模式下，Eth-Trunk的建立、成员接口的加入由手工配置，没有链路聚合控制协议LACP的参与。<br>当需要在两个直连设备之间提供一个较大的链路带宽而设备又不支持LACP协议时，可以使用手工模式。<br>手工模式可以实现增加带宽、提高可靠性和负载分担的目的。</p>
+<h2 id="LACP模式链路聚合"><a href="#LACP模式链路聚合" class="headerlink" title="LACP模式链路聚合"></a>LACP模式链路聚合</h2><p>作为链路聚合技术，手工负载分担模式Eth-Trunk可以完成多个物理接口聚合成一个Eth-Trunk口来提高带宽；<br>同时能够检测到同一聚合组内的成员链路有断路等有限故障，但是无法检测到链路层故障、链路错连等故障。<br>为了提高Eth-Trunk的容错性，并且能提供备份功能，保证成员链路的高可靠性，出现了链路聚合控制协议LACP（Link Aggregation Control Protocol），LACP模式就是采用LACP的一种链路聚合模式。<br>LACP为交换数据的设备提供一种标准的协商方式，以供设备根据自身配置自动形成聚合链路并启动聚合链路收发数据。<br>聚合链路形成以后，LACP负责维护链路状态，在聚合条件发生变化时，自动调整或解散链路聚合。</p>
+<h3 id="系统LACP优先级"><a href="#系统LACP优先级" class="headerlink" title="系统LACP优先级"></a>系统LACP优先级</h3><p>系统LACP优先级是为了区分两端设备优先级的高低而配置的参数。LACP模式下，两端设备所选择的活动接口必须保持一致，否则链路聚合组就无法建立。此时可以使其中一端具有更高的优先级，另一端根据高优先级的一端来选择活动接口即可。系统LACP优先级值越小优先级越高。</p>
+<h3 id="接口LACP优先级"><a href="#接口LACP优先级" class="headerlink" title="接口LACP优先级"></a>接口LACP优先级</h3><p>接口LACP优先级是为了区别同一个Eth-Trunk中的不同接口被选为活动接口的优先程度，优先级高的接口将优先被选为活动接口。接口LACP优先级值越小，优先级越高。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>基于IEEE802.3ad标准的LACP是一种实现链路动态聚合与解聚合的协议。<br>LACP通过链路聚合控制协议数据单元LACPDU（Link Aggregation Control Protocol Data Unit）与对端交互信息。<br>在LACP模式的Eth-Trunk中加入成员接口后，这些接口将通过发送LACPDU向对端通告自己的系统优先级、MAC地址、接口优先级、接口号和操作Key等信息。<br>对端接收到这些信息后，将这些信息与自身接口所保存的信息比较，用以选择能够聚合的接口，双方对哪些接口能够成为活动接口达成一致，确定活动链路。</p>
+<h3 id="LACPDU报文"><a href="#LACPDU报文" class="headerlink" title="LACPDU报文"></a>LACPDU报文</h3><p><img src="/img/loading.gif" data-original="https://pic3.zhimg.com/80/v2-dbac30435deb663e45b3b42b11471f7e_1440w.webp" alt="图片"></p>
+<h3 id="建立过程"><a href="#建立过程" class="headerlink" title="建立过程"></a>建立过程</h3><h4 id="两端互相发送LACPDU报文"><a href="#两端互相发送LACPDU报文" class="headerlink" title="两端互相发送LACPDU报文"></a>两端互相发送LACPDU报文</h4><p>如下图所示，在DeviceA和DeviceB上创建Eth-Trunk并配置为LACP模式，然后向Eth-Trunk中手工加入成员接口。<br>此时成员接口上便启用了LACP协议，两端互发LACPDU报文。<br><img src="/img/loading.gif" data-original="https://pic3.zhimg.com/80/v2-a12e305c6e30f7568b382bee2f86845a_1440w.webp" alt="图片"></p>
+<h4 id="确定主动端和活动链路"><a href="#确定主动端和活动链路" class="headerlink" title="确定主动端和活动链路"></a>确定主动端和活动链路</h4><p>如下图所示，两端设备均会收到对端发来的LACPDU报文。<br>以DeviceB为例，当DeviceB收到DeviceA发送的报文时，DeviceB会查看并记录对端信息，然后比较系统优先级字段，如果DeviceA的系统优先级高于本端的系统优先级，则确定DeviceA为LACP主动端。<br>如果DeviceA和DeviceB的系统优先级相同，比较两端设备的MAC地址，确定MAC地址小的一端为LACP主动端。<br>选出主动端后，两端都会以主动端的接口优先级来选择活动接口，两端设备选择了一致的活动接口，活动链路组便可以建立起来，从这些活动链路中以负载分担的方式转发数据。<br><img src="/img/loading.gif" data-original="https://pic3.zhimg.com/80/v2-eb7b336ba0fc97656f44c17448793e62_1440w.webp" alt="图片"></p>
+<h4 id="LACP-抢占"><a href="#LACP-抢占" class="headerlink" title="LACP 抢占"></a>LACP 抢占</h4><p>使能LACP抢占功能后，聚合组会始终保持高优先级的接口作为活动接口的状态。<br><img src="/img/loading.gif" data-original="https://pic1.zhimg.com/80/v2-1cddecc6defe5ca6781da651c0f83948_1440w.webp" alt="图片"><br>1.Port1接口出现故障而后又恢复了正常<br>当接口Port1出现故障时被Port3所取代，如果在Eth-Trunk接口下未使能LACP抢占功能，则故障恢复时Port1将处于备份状态；<br>如果使能了LACP抢占功能，当Port1故障恢复时，由于接口优先级比Port3高，将重新成为活动接口，Port3再次成为备份接口。<br>2.如果希望Port3接口替换Port1、Port2中的一个接口成为活动接口，可以使能了LACP抢占功能，并配置Port3的接口LACP优先级较高。<br>如果没有使能LACP抢占功能，即使将备份接口的优先级调整为高于当前活动接口的优先级，系统也不会进行重新选择活动接口的过程，不切换活动接口。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Timi-cat</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/">http://example.com/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Timi-cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="/img/wz.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/12/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E5%A4%A9/" title="计算机网络第三天"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计算机网络第三天</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="计算机网络第一天"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-14</div><div class="title">计算机网络第一天</div></div></a></div><div><a href="/2023/12/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%8C%E5%A4%A9/" title="计算机网络第二天"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-16</div><div class="title">计算机网络第二天</div></div></a></div><div><a href="/2023/12/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E5%A4%A9/" title="计算机网络第三天"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-17</div><div class="title">计算机网络第三天</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Timi-cat</div><div class="author-info__description">Timi-cat的个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.</span> <span class="toc-text">生成树协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#STP"><span class="toc-number">1.1.</span> <span class="toc-text">STP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BPDU"><span class="toc-number">1.1.1.</span> <span class="toc-text">BPDU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E7%AB%AF%E5%8F%A3%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.2.</span> <span class="toc-text">生成树端口状态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%BB%E5%A1%9E%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">阻塞状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%A6%E5%90%AC%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">侦听状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">学习状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E5%8F%91%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">转发状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E7%8A%B6%E6%80%81"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">关闭状态</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%A5ID"><span class="toc-number">1.1.3.</span> <span class="toc-text">桥ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%A1%A5%E9%80%89%E4%B8%BE"><span class="toc-number">1.1.4.</span> <span class="toc-text">根桥选举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E5%BC%80%E9%94%80%E5%8F%8A%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.1.5.</span> <span class="toc-text">生成树开销及优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E5%BC%80%E9%94%80"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">端口开销</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E7%AB%AF%E5%8F%A3%E9%80%89%E4%B8%BE"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">根端口选举</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E7%AB%AF%E5%8F%A3%E9%80%89%E5%8F%96"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">指定端口选取</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-number">1.1.6.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">1.1.7.</span> <span class="toc-text">作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSTP"><span class="toc-number">1.2.</span> <span class="toc-text">RSTP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E6%AF%94STP"><span class="toc-number">1.2.1.</span> <span class="toc-text">相比STP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSTP"><span class="toc-number">1.3.</span> <span class="toc-text">MSTP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.3.1.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">功能</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88"><span class="toc-number">2.</span> <span class="toc-text">链路聚合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84"><span class="toc-number">2.1.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8-1"><span class="toc-number">2.2.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.3.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E8%81%9A%E5%90%88%E7%BB%84%EF%BC%8C%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.4.</span> <span class="toc-text">链接聚合组，链路聚合接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E5%91%98%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%88%90%E5%91%98%E9%93%BE%E8%B7%AF"><span class="toc-number">2.5.</span> <span class="toc-text">成员接口和成员链路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%BB%E5%8A%A8%E6%8E%A5%E5%8F%A3%E5%92%8C%E9%9D%9E%E6%B4%BB%E5%8A%A8%E6%8E%A5%E5%8F%A3%E3%80%81%E6%B4%BB%E5%8A%A8%E9%93%BE%E8%B7%AF%E5%92%8C%E9%9D%9E%E6%B4%BB%E5%8A%A8%E9%93%BE%E8%B7%AF"><span class="toc-number">2.6.</span> <span class="toc-text">活动接口和非活动接口、活动链路和非活动链路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B4%BB%E5%8A%A8%E6%8E%A5%E5%8F%A3%E6%95%B0%E4%B8%8A%E9%99%90%E9%98%88%E5%80%BC"><span class="toc-number">2.7.</span> <span class="toc-text">活动接口数上限阈值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%B7%A5%E6%A8%A1%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88"><span class="toc-number">2.8.</span> <span class="toc-text">手工模式链路聚合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LACP%E6%A8%A1%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88"><span class="toc-number">2.9.</span> <span class="toc-text">LACP模式链路聚合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9FLACP%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">2.9.1.</span> <span class="toc-text">系统LACP优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3LACP%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">2.9.2.</span> <span class="toc-text">接口LACP优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.9.3.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LACPDU%E6%8A%A5%E6%96%87"><span class="toc-number">2.9.4.</span> <span class="toc-text">LACPDU报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E8%BF%87%E7%A8%8B"><span class="toc-number">2.9.5.</span> <span class="toc-text">建立过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%A4%E7%AB%AF%E4%BA%92%E7%9B%B8%E5%8F%91%E9%80%81LACPDU%E6%8A%A5%E6%96%87"><span class="toc-number">2.9.5.1.</span> <span class="toc-text">两端互相发送LACPDU报文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E4%B8%BB%E5%8A%A8%E7%AB%AF%E5%92%8C%E6%B4%BB%E5%8A%A8%E9%93%BE%E8%B7%AF"><span class="toc-number">2.9.5.2.</span> <span class="toc-text">确定主动端和活动链路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LACP-%E6%8A%A2%E5%8D%A0"><span class="toc-number">2.9.5.3.</span> <span class="toc-text">LACP 抢占</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/" title="计算机网络第四天"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络第四天"/></a><div class="content"><a class="title" href="/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/" title="计算机网络第四天">计算机网络第四天</a><time datetime="2023-12-18T09:14:46.000Z" title="发表于 2023-12-18 17:14:46">2023-12-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E5%A4%A9/" title="计算机网络第三天"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络第三天"/></a><div class="content"><a class="title" href="/2023/12/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E5%A4%A9/" title="计算机网络第三天">计算机网络第三天</a><time datetime="2023-12-17T08:51:46.000Z" title="发表于 2023-12-17 16:51:46">2023-12-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%8C%E5%A4%A9/" title="计算机网络第二天"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络第二天"/></a><div class="content"><a class="title" href="/2023/12/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%8C%E5%A4%A9/" title="计算机网络第二天">计算机网络第二天</a><time datetime="2023-12-15T21:09:10.000Z" title="发表于 2023-12-16 05:09:10">2023-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="计算机网络第一天"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络第一天"/></a><div class="content"><a class="title" href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="计算机网络第一天">计算机网络第一天</a><time datetime="2023-12-14T14:12:07.000Z" title="发表于 2023-12-14 22:12:07">2023-12-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/13/%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5%E7%9A%84%E5%8C%BA%E5%88%AB/" title="软链接和硬链接的区别"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="软链接和硬链接的区别"/></a><div class="content"><a class="title" href="/2023/12/13/%E8%BD%AF%E9%93%BE%E6%8E%A5%E5%92%8C%E7%A1%AC%E9%93%BE%E6%8E%A5%E7%9A%84%E5%8C%BA%E5%88%AB/" title="软链接和硬链接的区别">软链接和硬链接的区别</a><time datetime="2023-12-13T10:57:53.000Z" title="发表于 2023-12-13 18:57:53">2023-12-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Timi-cat</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer" data-id="8900865262" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="/true"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
