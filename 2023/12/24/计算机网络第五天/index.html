@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>计算机网络05 | Timi-cat</title><meta name="author" content="Timi-cat"><meta name="copyright" content="Timi-cat"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="VRRP概述Virtual Router Redundancy Protocol ，即虚拟路由器冗余协议。VRRP可以使同一局域网内的两台路由器（同一个局域网中的两个接口）协同工作。两台路由器一个处于Master状态，另一个处于Backup状态。处于Master状态的路由器（的接口）承担实际的数据流量转发任务。  VRRP决定那个路由器是Master。Master路由器负责接收发送至用户网关的数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络05">
+<meta property="og:url" content="http://example.com/2023/12/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E5%A4%A9/index.html">
+<meta property="og:site_name" content="Timi-cat">
+<meta property="og:description" content="VRRP概述Virtual Router Redundancy Protocol ，即虚拟路由器冗余协议。VRRP可以使同一局域网内的两台路由器（同一个局域网中的两个接口）协同工作。两台路由器一个处于Master状态，另一个处于Backup状态。处于Master状态的路由器（的接口）承担实际的数据流量转发任务。  VRRP决定那个路由器是Master。Master路由器负责接收发送至用户网关的数据">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/wz.jpg">
+<meta property="article:published_time" content="2023-12-23T22:45:16.000Z">
+<meta property="article:modified_time" content="2023-12-28T05:55:49.050Z">
+<meta property="article:author" content="Timi-cat">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/wz.jpg"><link rel="shortcut icon" href="/img/touxiang.jpg"><link rel="canonical" href="http://example.com/2023/12/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E5%A4%A9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":100},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '计算机网络05',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-28 13:55:49'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/loading.gif" data-original="/img/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-sitemap"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/img/wz.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Timi-cat"><span class="site-name">Timi-cat</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-sitemap"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">计算机网络05</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-12-23T22:45:16.000Z" title="发表于 2023-12-24 06:45:16">2023-12-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-12-28T05:55:49.050Z" title="更新于 2023-12-28 13:55:49">2023-12-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="计算机网络05"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="VRRP"><a href="#VRRP" class="headerlink" title="VRRP"></a>VRRP</h1><h2 id="概述Virtual-Router-Redundancy-Protocol-，即虚拟路由器冗余协议。"><a href="#概述Virtual-Router-Redundancy-Protocol-，即虚拟路由器冗余协议。" class="headerlink" title="概述Virtual Router Redundancy Protocol ，即虚拟路由器冗余协议。"></a>概述Virtual Router Redundancy Protocol ，即虚拟路由器冗余协议。</h2><p>VRRP可以使同一局域网内的两台路由器（同一个局域网中的两个接口）协同工作。<br>两台路由器一个处于Master状态，另一个处于Backup状态。处于Master状态的路由器（的接口）承担实际的数据流量转发任务。</p>
+<ul>
+<li>VRRP决定那个路由器是Master。<br>Master路由器负责接收发送至用户网关的数据包并进行转发，以及响应PC对于其网关IP地址的ARP请求。<br>Backup路由器侦听Master路由器的状态，并在Master路由器发生故障时，接替其工作，从而保证业务流量的平滑切换。<br>在一个VRRP组内的多个路由器接口共用一个虚拟IP地址，这个虚拟IP地址被作为局域网内所有主机的缺省（默认）网关地址。</li>
+</ul>
+<h2 id="VRRP组"><a href="#VRRP组" class="headerlink" title="VRRP组"></a>VRRP组</h2><p>一个VRRP组有多个VRRP路由器组成，使用相同的VRID（虚拟路由器ID）进行标识，属于同一个VRRP组的VRRP路由器互相交换信息，每一个VRRP组中只能有一个Master。</p>
+<h2 id="虚拟路由器"><a href="#虚拟路由器" class="headerlink" title="虚拟路由器"></a>虚拟路由器</h2><p>对于每一个VRRP组，抽象出来的一个逻辑路由器，该路由器充当 网络用户的网关，该路由器并非真实存在，事实上对于用户而言，只需知道虚拟路由器的IP,至于具体的数据转发任务由谁来承担，Master故障后谁来接替，这是VRRP的工作<br><img src="/img/loading.gif" data-original="https://img-blog.csdnimg.cn/b8e183f78b43472cbd1a2fa22390551d.png" alt="图片"></p>
+<h2 id="虚拟IP，MAC地址"><a href="#虚拟IP，MAC地址" class="headerlink" title="虚拟IP，MAC地址"></a>虚拟IP，MAC地址</h2><p>虚拟IP地址就是虚拟路由器的IP地址，该地址实际上就是用户的网关地址<br>虚拟MAC地址是虚拟路由器根据VRID生成的MAC地址。一个虚拟路由器拥有一个虚拟MAC地址，格式为：00-00-5E-00-01-&lt; VRID &gt;（比如VRID 1 他的虚拟MAC地址为00-00-5E-00-01-01）<br>Master路由器：在VRRP组中实际转发数据包的路由器，在每一个VRRP组中仅有Master路由响应对虚拟IP地址的ARP请求。Master路由器同时以一定的时间间隔发送VRRP消息，以便通知Backup路由器自己的存活情况。<br>Backup路由器：处于监听状态的路由器，一旦Master路由器出现故障，Backup路由器就开始接替工作<br>Master和Backup的选举依据：先比较接口VRRP优先级（比大），如果相等，则比较接口IP地址（比大）</p>
+<h2 id="VRRP报文"><a href="#VRRP报文" class="headerlink" title="VRRP报文"></a>VRRP报文</h2><p>VRRP报文是一种组播报文，由Master路由器发出来通告它的存活情况，VRRP报文是封装在IP报文中，通过组播的方式传送。也就是说VRRP协议跟ICMP协议一样，工作在第三层（网络层），它是不具有端口的说法的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>VRRP 即虚拟路由器冗余协议。</p>
+<p>作用:vrrp是一种路由器备份机制。保证网络主机的下一跳路由器故障时可及时由另一台路由器代替，从而保证网络的连续性和可靠性。</p>
+<p>概念:</p>
+<p>VRID：每一个VRRP组都有一个VRID，作为唯一标识<br>虚拟路由、虚拟IP、虚拟MAC<br>虚拟路由：VRRP虚拟出的逻辑路由器，上面有虚拟IP、虚拟MAC<br>虚拟IP：VRRP组中由MASTER设备承载的虚拟IP地址，并且是所有局域网主机的默认网关<br>虚拟MAC：00-00-5E-00-01-【VRID】<br>MASTER：承载虚拟IP，实际用于接收用户发送的数据，负责数据包的转发，响应局域网主机的ARP请求,周期性的给BACKUP发送VRRP报文通告自己的存活情况<br>BACKUP：监听MASTER发送的VRRP报文，当在一定时间范围内没接收到MASTER发送的VRRP报文时，则会替代MASTER角色<br>MASTER，BACKUP 角色的选举依据：<br>优先使用VRRP优先级来选举，值越大，优先级越高。<br>如果优先级一样，则通过接口的IP地址来选举，IP越大，优先级越高。<br>VRRP报文：封装在IP报文里，通过组播地址224.0.0.18发送，TTL（生命周期没经过路由器转发就会-1，为0时数据将被丢弃）为255，协议号为112</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><img src="/img/loading.gif" data-original="https://img-blog.csdnimg.cn/8461dc7739aa41cc8bcf5ae41e6d2d36.png" alt="图片"><br><strong>1.在lsw1中创建vlan 10和vlan 20，在lsw2和lsw3中分别创建vlan 10，vlan 20和vlan 100</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vlan batch 10 20 100</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>2.进入所有的交换机（lsw1、lsw2、lsw3）端口设置链路类型（Access或Trunk）并将Access链路类型的端口加入对应vlan，然后设置一下路由器（AR1）的端口的IP地址</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">access：</span><br><span class="line">int e0/0/4</span><br><span class="line">port link-type access</span><br><span class="line">port default vlan 10 </span><br><span class="line"></span><br><span class="line">trunk</span><br><span class="line">int e0/0/1</span><br><span class="line">port link-type trunk</span><br><span class="line">port trunk allow-pass vlan all （all表示所有）</span><br><span class="line"></span><br><span class="line">AR1:</span><br><span class="line">int g0/0/1</span><br><span class="line">ip address 11.0.0.1 30</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>3.创建虚拟vlan端口并添加IP地址，在lsw1和lsw2中分别创建vlanif 10，vlanif 20，vlanif 100，并设置好对应的IP地址</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int vlanif 10</span><br><span class="line">ip address 192.168.10.10 24</span><br></pre></td></tr></table></figure>
+<p><strong>4.然后将lsw2和lsw3各自的vlanif10加入到 vrid 10 中设置好 vrid 10 的ip地址 这个地址就是所有vlan 10内主机的默认网关地址。然后我们要将lsw2设置成 vrid 10 的Master模式，lsw3设置成 vrid 10 的Backup模式。</strong></p>
+<p>只需要在lsw2中设置下列操作即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[lsw2]int vlanif 10 （进入vlan10网关的接口）</span><br><span class="line"></span><br><span class="line">[lsw2-vlanif10]vrrp vrid 10 virtual-ip 192.168.10.11  (创建VRRP虚拟路由器的标识vrid为10，并</span><br><span class="line">配置vrid 10 的虚拟IP地址为192.168.10.11)</span><br><span class="line"></span><br><span class="line">[lsw2-vlanif10]vrrp vrid 10 priority 120 （设置设备lsw2的优先级为120，默认值为100，数值越</span><br><span class="line">大越优先）（##设置好这个，只要另一台 路由/三层交换机 的优先级低于这台 路由/三层交换机，</span><br><span class="line">这个 路由/三层交换机 就是Master设备）</span><br><span class="line"></span><br><span class="line">[lsw2-vlanif10]vrrp vrid 10 preempt-mode timer delay 5  （配置Master设备的抢占时延为5秒，默</span><br><span class="line">认值为0，即立即抢占，我们把他设置为Master失效的5秒后抢占Master身份，以防频繁地进行状</span><br><span class="line">态切换导致数据丢失）</span><br><span class="line"></span><br><span class="line">[lsw2-vlanif10]vrrp vrid 10 track interface g0/0/1 reduced 30  （持续跟踪上行接口g0/0/1的状</span><br><span class="line">态，如端口故障则Master优先级降低30，默认值为10，之前我们设置的优先级为120，故障</span><br><span class="line">之后降低30变为90比默认的优先级100小所以我们的lsw3不需要设置优先级使用默认的优先</span><br><span class="line">级就可以。）</span><br></pre></td></tr></table></figure>
+<p><strong>在lsw3中设置下列操作</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[lsw3]int vlanif 10 （进入vlan10网关的接口）</span><br><span class="line"></span><br><span class="line">[lsw3-vlanif10]vrrp vrid 10 rirtual-ip 192.168.10.11  （将lsw3也加入到 vrid 10 中）</span><br><span class="line"></span><br><span class="line">其他的我们就不需要设置了优先级默认是100低于lsw2中设置的优先级。</span><br></pre></td></tr></table></figure>
+<p><strong>5.vrid 20 重复上述操作将 lsw3 设置为 vrid 20 的Master设备，将 lsw2 设置为 vrid 20 的 Backup设备。</strong><br><strong>6.（1）然后给 lsw2 配置 路由规则 目标地址为 1.1.1.1 （pc4的IP地址）子网掩码为24 下一跳地址为 11.0.0.1</strong><br><strong>（2）再给lsw3配置路由规则 目标地址为 1.1.1.1 （pc4的IP地址）子网掩码为24 下一跳地址为 12.0.0.1</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip route-static 1.1.1.1 24 11.0.0.1</span><br></pre></td></tr></table></figure>
+<p><strong>7.再给AR1配置一下路由规则</strong><br>设置一个目标IP地址为 pc1 IP地址的静态路由，下一跳IP地址为11.0.0.2（LSW2 中vlanif 100的IP地址）<br>设置一个目标IP地址为 PC1 IP地址的静态路由+备份路由 下一跳IP地址为12.0.0.2 （LSW3 中vlanif 100的IP地址）<br>设置一个目标IP地址为 pc2 IP地址的静态路由+备份路由 ，下一跳IP地址为11.0.0.2（LSW2 中vlanif 100的IP地址）<br>设置一个目标IP地址为 PC1 IP地址的静态路由，下一跳IP地址为12.0.0.2 （LSW3 中vlanif 100的IP地址）<br><strong>8.最后置一下PC1、PC2、PC4的IP地址和网关地址（PC1的网关地址是VRID 10的IP地址，PC2的网关地址是VRID 20的IP 地址，PC4的网关地址是1.1.1.2）</strong><br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_60917414/article/details/129671312">https://blog.csdn.net/weixin_60917414/article/details/129671312</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Timi-cat</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/12/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E5%A4%A9/">http://example.com/2023/12/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E5%A4%A9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Timi-cat</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="/img/wz.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/" title="计算机网络04"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">计算机网络04</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="计算机网络01"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-14</div><div class="title">计算机网络01</div></div></a></div><div><a href="/2023/12/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%8C%E5%A4%A9/" title="计算机网络02"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-16</div><div class="title">计算机网络02</div></div></a></div><div><a href="/2023/12/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E5%A4%A9/" title="计算机网络03"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-17</div><div class="title">计算机网络03</div></div></a></div><div><a href="/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/" title="计算机网络04"><img class="cover" src="/img/loading.gif" data-original="/img/wz.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-18</div><div class="title">计算机网络04</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/loading.gif" data-original="/img/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Timi-cat</div><div class="author-info__description">Timi-cat的个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VRRP"><span class="toc-number">1.</span> <span class="toc-text">VRRP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0Virtual-Router-Redundancy-Protocol-%EF%BC%8C%E5%8D%B3%E8%99%9A%E6%8B%9F%E8%B7%AF%E7%94%B1%E5%99%A8%E5%86%97%E4%BD%99%E5%8D%8F%E8%AE%AE%E3%80%82"><span class="toc-number">1.1.</span> <span class="toc-text">概述Virtual Router Redundancy Protocol ，即虚拟路由器冗余协议。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VRRP%E7%BB%84"><span class="toc-number">1.2.</span> <span class="toc-text">VRRP组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E8%B7%AF%E7%94%B1%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">虚拟路由器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9FIP%EF%BC%8CMAC%E5%9C%B0%E5%9D%80"><span class="toc-number">1.4.</span> <span class="toc-text">虚拟IP，MAC地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VRRP%E6%8A%A5%E6%96%87"><span class="toc-number">1.5.</span> <span class="toc-text">VRRP报文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">1.7.</span> <span class="toc-text">配置</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/12/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E5%A4%A9/" title="计算机网络05"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络05"/></a><div class="content"><a class="title" href="/2023/12/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%94%E5%A4%A9/" title="计算机网络05">计算机网络05</a><time datetime="2023-12-23T22:45:16.000Z" title="发表于 2023-12-24 06:45:16">2023-12-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/" title="计算机网络04"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络04"/></a><div class="content"><a class="title" href="/2023/12/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E5%9B%9B%E5%A4%A9/" title="计算机网络04">计算机网络04</a><time datetime="2023-12-18T09:14:46.000Z" title="发表于 2023-12-18 17:14:46">2023-12-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E5%A4%A9/" title="计算机网络03"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络03"/></a><div class="content"><a class="title" href="/2023/12/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%89%E5%A4%A9/" title="计算机网络03">计算机网络03</a><time datetime="2023-12-17T08:51:46.000Z" title="发表于 2023-12-17 16:51:46">2023-12-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%8C%E5%A4%A9/" title="计算机网络02"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络02"/></a><div class="content"><a class="title" href="/2023/12/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%BA%8C%E5%A4%A9/" title="计算机网络02">计算机网络02</a><time datetime="2023-12-15T21:09:10.000Z" title="发表于 2023-12-16 05:09:10">2023-12-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="计算机网络01"><img src="/img/loading.gif" data-original="/img/wz.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络01"/></a><div class="content"><a class="title" href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%AC%E4%B8%80%E5%A4%A9/" title="计算机网络01">计算机网络01</a><time datetime="2023-12-14T14:12:07.000Z" title="发表于 2023-12-14 22:12:07">2023-12-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Timi-cat</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer" data-id="8900865262" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="/true"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
